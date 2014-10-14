@@ -52,7 +52,21 @@
     </div>
   </div>
 
+    <% quotes = [
+
+      ["Failure is not an option", "Bob"],
+      ["Success please", "Me"],
+      ["Win everything!", "Stan"]
+
+    ] %>
+
+      <% quotes.each do |quote| %>
+        <p>"<%= quote[0]%>" <%= quote[1]%></p>
+    <% end %>
+
+
   <hr>
+
 
 
 </div> <!-- /container -->
