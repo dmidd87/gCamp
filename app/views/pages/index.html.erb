@@ -53,8 +53,10 @@
   </div>
 
       <% @quotes.each do |quote| %>
-        <p>"<%= quote[0]%>" <p class="Authors"><%= quote[1]%></p></p>
-      <% end %>
+        <p>"<%= quote.text %>"</p>
+        <p><%= quote.author %></p>
+ <hr>
+<% end %>
 
 
   <hr>
