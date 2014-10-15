@@ -16,6 +16,7 @@ class PagesController < ApplicationController
     quote3.author = "-Stan"
 
     @quotes = [quote1, quote2, quote3]
+
   end
 
 end

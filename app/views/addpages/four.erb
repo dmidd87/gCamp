@@ -1,1 +1,8 @@
-<h1>FAQ TEXT</h1>
+
+<div class=container>
+  <% @faqs.each do |faq| %>
+  <h2><%= faq.title %></h2>
+  <p><%= faq.body %></p>
+
+  <% end %>
+</div>
