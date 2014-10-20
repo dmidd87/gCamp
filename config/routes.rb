@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :tasks
+
   root "pages#index"
   get "about" => "addpages#two", as: :two
   get "terms" => "addpages#three", as: :three
