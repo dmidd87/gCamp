@@ -1,66 +1,68 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1> gCamp </h1>
-    <p>Your world, organized.</p>
-  </div>
-</div>
+<body>
 
 <div class="container">
 
-
-  <div class="row">
-    <div class="col-md-4">
-      <img src="http://www.imcreator.com/wp-content/uploads/2013/11/wpid-Featured_Picture38-620x422.jpg" class="img-responsive">
-        <div class="panel panel-default">
-
-        <div class= "panel heading"><h2>Tasks</h2></div>
-      <p>Grouped by projects and lists, just the way you like 'em.</p>
-
+    <div class="jumbotron">
+      <h1> gCamp </h1>
+      <p>Your world, organized.</p>
     </div>
 
-  </div>
+</div>
+
+  <div class="container">
 
 
-    <div class="col-md-4">
-        <img src="http://www.imcreator.com/wp-content/uploads/2013/10/wpid-Featured_Picture405-620x413.jpg" class="img-responsive">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="http://www.imcreator.com/wp-content/uploads/2013/11/wpid-Featured_Picture38-620x422.jpg" class="img-responsive">
           <div class="panel panel-default">
 
-            <div class= "panel heading"><h2>Documents</h2></div>
-      <ul>
-      <li>Upload</li>
-      <li>Comment</li>
-      <li>Revise</li>
-      </ul>
+          <div class= "panel heading"><h2>Tasks</h2></div>
+        <p>Grouped by projects and lists, just the way you like 'em.</p>
 
-      </li>
-          </div>
-
-   </div>
-    <div class="col-md-4">
-
-
-      <img src="http://www.imcreator.com/wp-content/uploads/2013/09/8785432136_2f72554293_b.jpg" class=img-responsive>
-        <div class="panel panel-default">
-
-      <div class= "panel heading"><h2>Comments</h2></div>
-        <ul>
-          <li>Comments on tasks and documents</li>
-          <li>Get email notifications</li>
-        </ul>
       </div>
 
     </div>
-  </div>
-
-      <% @quotes.each do |quote| %>
-        <p>"<%= quote.text %>"</p>
-        <p><%= quote.author %></p>
- <hr>
-<% end %>
 
 
-  <hr>
+      <div class="col-md-4">
+          <img src="http://www.imcreator.com/wp-content/uploads/2013/10/wpid-Featured_Picture405-620x413.jpg" class="img-responsive">
+            <div class="panel panel-default">
+
+              <div class= "panel heading"><h2>Documents</h2></div>
+        <ul>
+        <li>Upload</li>
+        <li>Comment</li>
+        <li>Revise</li>
+        </ul>
+
+        </li>
+            </div>
+
+     </div>
+      <div class="col-md-4">
 
 
+        <img src="http://www.imcreator.com/wp-content/uploads/2013/09/8785432136_2f72554293_b.jpg" class=img-responsive>
+          <div class="panel panel-default">
 
-</div> <!-- /container -->
+        <div class= "panel heading"><h2>Comments</h2></div>
+          <ul>
+            <li>Comments on tasks and documents</li>
+            <li>Get email notifications</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+        <% @quotes.each do |quote| %>
+          <p>"<%= quote.text %>"</p>
+          <p><%= quote.author %></p>
+   <hr>
+  <% end %>
+
+
+    <hr>
+
+</body>
