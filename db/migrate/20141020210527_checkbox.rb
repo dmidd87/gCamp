@@ -1,6 +1,7 @@
 class Checkbox < ActiveRecord::Migration
-  def change
-    add_column :tasks, :complete, :boolean 
 
+  def change
+    add_column :tasks, :complete, :boolean
   end
+  
 end

@@ -4,6 +4,7 @@
     <%= stylesheet_link_tag 'application' %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
@@ -21,10 +22,10 @@
     </div>
   </div>
 
-  
+
   <%= yield %>
 
-    <br>
+
     <footer>
       <div class = "container">
         <hr>
@@ -33,5 +34,6 @@
       <%= link_to_unless_current "FAQ", four_path %>
     </div>
     </footer>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
