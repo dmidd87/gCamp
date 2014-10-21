@@ -1,8 +1,12 @@
-
 <div class=container>
-  <% @faqs.each do |faq| %>
-  <h2><%= faq.title %></h2>
-  <p><%= faq.body %></p>
 
-  <% end %>
+  <h1>Frequently Asked Questions</h1>
+
+  <br>
+
+    <% @faqs.each do |faq| %>
+      <h2><%= faq.title %></h2>
+        <p><%= faq.body %></p>
+
+    <% end %>
 </div>

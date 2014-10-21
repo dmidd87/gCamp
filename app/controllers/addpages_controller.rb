@@ -9,7 +9,7 @@ class AddpagesController <ApplicationController
     faq1 = Faq.new
     faq1.title = "What is gCamp?"
     faq1.body = "gCamp is an awesome tool that is going to change your life. gCamp is your one stop shop to organize all your tasks
-    and documents.  You'll be able to track comments taht you and others make.  gCamp may eventually replace all need for paper and pens in the entire world.
+    and documents.  You'll be able to track comments tha  t you and others make.  gCamp may eventually replace all need for paper and pens in the entire world.
     Well, maybe not, but it's going to be pretty cool."
 
     faq2 = Faq.new
@@ -25,6 +25,8 @@ class AddpagesController <ApplicationController
     your mind.  Organization is only (well, will only) be a click away.  Amazing!"
 
     @faqs = [faq1, faq2, faq3]
+
+
 
   end
 
