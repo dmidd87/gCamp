@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :tasks
 
   root "pages#index"
-  get "about" => "addpages#two", as: :two
-  get "terms" => "addpages#three", as: :three
-  get "FAQ" => "addpages#four", as: :four
+  get "about" => "addpages#about", as: :about
+  get "terms" => "addpages#terms", as: :terms
+  get "FAQ" => "addpages#faq", as: :faq
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

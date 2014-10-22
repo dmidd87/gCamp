@@ -1,10 +1,10 @@
 class AddpagesController <ApplicationController
-  def two
+  def about
 
   end
 
 
-  def four
+  def faq
 
     faq1 = Faq.new
     faq1.title = "What is gCamp?"
@@ -26,7 +26,7 @@ class AddpagesController <ApplicationController
 
     @faqs = [faq1, faq2, faq3]
 
-    
+
 
   end
 
