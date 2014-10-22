@@ -26,7 +26,7 @@ class AddpagesController <ApplicationController
 
     @faqs = [faq1, faq2, faq3]
 
-
+    
 
   end
 
