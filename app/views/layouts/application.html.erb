@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+      <title>gCamp</title>
     <%= stylesheet_link_tag 'application' %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +33,20 @@
       <%= link_to_unless_current "About", about_path %> |
       <%= link_to_unless_current "Terms", terms_path %> |
       <%= link_to_unless_current "FAQ", faq_path %>
-    </div>
+        <div class = "icons">
+            <%= link_to "https://www.twitter.com/dpmidd" do %>
+              <%= image_tag("twitterlogo.png", width: "20em") %>
+            <% end %>
+
+            <%= link_to "https://www.github.com/dmidd87" do %>
+              <%= image_tag("github.png", width: "20em") %>
+            <% end %>
+
+            <%= link_to "https://www.linkedin.com/pub/david-middleton/49/48a/788" do %>
+              <%= image_tag("linkedin.png", width: "20em") %>
+            <% end %>
+        </div>
+      </div>
     </footer>
     <%= javascript_include_tag 'application' %>
   </body>

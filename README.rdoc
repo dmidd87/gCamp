@@ -1,5 +1,15 @@
 == README
 
+Heroku link = http://pure-basin-2493.herokuapp.com/
+
+Linkedin = https://www.linkedin.com/pub/david-middleton/49/48a/788
+
+Twitter = https://twitter.com/DpMidd
+
+Github = github.com/dmidd87
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
