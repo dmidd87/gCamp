@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   root "pages#index"
 
-  get "about" => "addpages#about", as: :about
-  get "terms" => "addpages#terms", as: :terms
-  get "FAQ" => "addpages#faq", as: :faq
+  get "about" => "pages#about", as: :about
+  get "terms" => "pages#terms", as: :terms
+  get "FAQ" => "pages#faq", as: :faq
 
 
   # The priority is based upon order of creation: first created -> highest priority.
