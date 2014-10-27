@@ -13,11 +13,7 @@
            <tr>
                <td><%= user.first_name %><%= user.last_name %></td>
                <td><%= user.email_address %></td>
-               <td class="form-actions">
-                 <%= link_to 'Show', user, class: "btn btn-success" %>
-                 <%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary" %>
-                 <%= link_to 'Destroy', user, class: "btn btn-danger", method: :delete %>
-               </td>
+              
            </tr>
          <% end %>
        </tbody>
