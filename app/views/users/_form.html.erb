@@ -1,0 +1,18 @@
+<%= form_for(@user) do |f| %>
+
+  <div class="First Name">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="Last Name">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+
+  <div class="Email">
+    <%= f.label :email_address %>
+    <%= f.text_field :email_address %>
+  </div>
+      <%= f.submit :class => 'btn btn-primary'%>
+
+  <% end %>
