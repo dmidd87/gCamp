@@ -1,16 +1,24 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-
-    def set_user
-      @user = User.find(params[:id])
-    end
-
     def index
       @users = User.all
     end
 
     def show
+
+    end
+
+    def update
+      respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to @user, notice: 'User was successfully updated.' }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      end
     end
 
     def new
@@ -18,13 +26,14 @@ class UsersController < ApplicationController
     end
 
     def edit
+
     end
 
     def create
       @user = User.new(params.require(:user).permit(:first_name, :last_name, :email_address))
       respond_to do |format|
         if @user.save
-          format.html { redirect_to @user, notice: 'Task was successfully created.'}
+          format.html { redirect_to @user, notice: 'User was successfully created.'}
           format.json { render :show, status: :created, location: @user }
         else
           format.html { render :new }
@@ -35,5 +44,16 @@ class UsersController < ApplicationController
 
     def destroy
     end
+
+    private
+
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :email_address)
+    end
+
 
 end
