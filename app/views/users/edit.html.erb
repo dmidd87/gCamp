@@ -1,4 +1,4 @@
-<div class="container">
+<form class="form-horizontal" role="form">
 
   <h1>Edit User</h1>
 
@@ -7,8 +7,9 @@
     <%= link_to 'Show', @user %> |
     <%= link_to 'Back', users_path %>
 
-    <br>  
+    <br>
+  <div class= "well">
+      <%= link_to 'Destroy', user_path, class: "btn btn-danger", method: :delete %>
+  </div>
 
-    <%= link_to 'Destroy', user_path, class: "btn btn-danger", method: :delete %>
-
-</div>
+</form>
