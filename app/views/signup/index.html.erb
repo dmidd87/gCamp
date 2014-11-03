@@ -1,3 +1,26 @@
 <div class="well">
   <h2>Sign Up for gCamp!<h2>
+
+
+  <div>
+  <%= form_tag signup_path do |f| %>
+
+    <div class="Email">
+      <%= label_tag :email_address %>
+      <%= email_field_tag :email_address %>
+    </div>
+
+    <div class="Password">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+
+    <div class="Password Confirmation">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+
+        <%= submit_tag "Sign in", :class => 'btn btn-primary'%>
+
+  <% end %>
+  </div>
 </div>
