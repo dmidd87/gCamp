@@ -15,7 +15,18 @@
         <%= link_to "gCamp", root_path, id:"gCamphome" %>
       </div>
         <div class="navbar-header, text-right">
-          <%= link_to "Sign Up", signup_path %> |
+            <div>
+  <% if current_user %>
+    <%= link_to "Sign Out", signout_path %> |
+
+  <% else %>
+
+    <%= link_to "Sign Up", sign_up_path %> |
+
+    <%= link_to "Sign In", signin_path %>
+
+  <% end %>
+  </div>|
         </div>
     </div>
   </div>
@@ -32,7 +43,7 @@
       <%= link_to_unless_current "FAQ", faq_path %> |
       <%= link_to_unless_current "Tasks", tasks_path %> |
       <%= link_to_unless_current "Users", users_path %> |
-      <%= link_to_unless_current "Sign Up", signup_path %>
+      <%= link_to_unless_current "Sign Up", sign_up_path %>
 
 
 

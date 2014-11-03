@@ -1,0 +1,36 @@
+<div class="container, well">
+  Sign Up for gCamp!
+
+
+  <div>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <ul class="list-unstyled">
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <%= form_for @user, url: sign_up_path do |f| %>
+
+    <div class="Email">
+      <%= f.label :email_address %>
+      <%= f.email_field :email_address %>
+    </div>
+
+    <div class="Password">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+    <div class="Password Confirmation">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password %>
+    </div>
+
+        <%= submit_tag "Sign Up", :class => 'btn btn-primary'%>
+
+  <% end %>
+  </div>
+</div>
