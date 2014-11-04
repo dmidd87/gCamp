@@ -17,6 +17,8 @@
         <div class="navbar-header, text-right">
             <div>
   <% if current_user %>
+
+
     <%= link_to "Sign Out", signout_path %> |
 
   <% else %>
@@ -42,9 +44,7 @@
       <%= link_to_unless_current "Terms", terms_path %> |
       <%= link_to_unless_current "FAQ", faq_path %> |
       <%= link_to_unless_current "Tasks", tasks_path %> |
-      <%= link_to_unless_current "Users", users_path %> |
-      <%= link_to_unless_current "Sign Up", sign_up_path %>
-
+      <%= link_to_unless_current "Users", users_path %> 
 
 
         <div class = "icons">
