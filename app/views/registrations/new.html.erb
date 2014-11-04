@@ -15,6 +15,16 @@
 
   <%= form_for @user, url: sign_up_path do |f| %>
 
+    <div class="First Name">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+
+    <div class="Last Name">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+
     <div class="Email">
       <%= f.label :email_address %>
       <%= f.email_field :email_address %>
