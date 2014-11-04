@@ -19,27 +19,29 @@
 
     <div class="First Name">
       <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
+      <%= f.text_field :first_name, class:"form-control, col-sm-12" %>
     </div>
 
     <div class="Last Name">
       <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
+      <%= f.text_field :last_name, class:"form-control, col-sm-12" %>
     </div>
 
     <div class="Email">
       <%= f.label :email_address %>
-      <%= f.email_field :email_address %>
+      <%= f.email_field :email_address, class:"form-control, col-sm-12" %>
     </div>
 
     <div class="Password">
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, class:"form-control, col-sm-12" %>
 
     <div class="Password Confirmation">
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, class:"form-control, col-sm-12" %>
     </div>
+
+    <hr>
 
         <%= submit_tag "Sign Up", :class => 'btn btn-primary'%>
 
