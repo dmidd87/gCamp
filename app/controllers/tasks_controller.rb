@@ -6,11 +6,11 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
-  def show
-  end
-
   def new
     @task = Task.new
+  end
+
+  def show
   end
 
   # GET /tasks/1/edit
