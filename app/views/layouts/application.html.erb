@@ -27,10 +27,12 @@
 
     <%= link_to "Sign Up", sign_up_path %>
 
+    |
+
     <%= link_to "Sign In", signin_path %>
 
   <% end %>
-  </div>|
+  </div>
         </div>
     </div>
   </div>
@@ -39,7 +41,7 @@
   <%= yield %>
 
 
-    <footer>
+    <footer class= "footer navbar-fixed-bottom">
       <div class = "container">
         <hr>
       <%= link_to_unless_current "About", about_path %> |
