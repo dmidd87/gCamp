@@ -9,9 +9,8 @@ feature "Tasks" do
       fill_in "Description", with: "My awesome task!"
         expect(page).to have_no_content "My awesome task!"
       click_on "Create Task"
-      
-        expect(page).to have_content "My awesome task!"
 
+        expect(page).to have_content "My awesome task!"
       click_on "Edit"
 
       fill_in "Description", with: "My edited task!"
