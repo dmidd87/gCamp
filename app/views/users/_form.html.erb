@@ -14,6 +14,16 @@
     <%= f.email_field :email_address %>
   </div>
 
+  <div class="Password">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+  <div class="Password Confirmation">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+
       <%= f.submit :class => 'btn btn-primary'%>
 
 <% end %>
