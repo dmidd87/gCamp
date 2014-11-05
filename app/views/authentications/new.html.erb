@@ -3,15 +3,24 @@
       <div class="well">
 
     <h2>Sign in to gCamp</h2>
-    <%= form_tag signin_path do |f| %>
 
-    <%= label_tag :email_address %>
-    <%= email_field_tag :email_address, class:"form-control, col-sm-12" %>
+      <%= form_tag signin_path do |f| %>
 
-    <%= label_tag :password %>
-    <%= password_field_tag :password, class:"form-control, col-sm-12" %>
+    <div>
+        <%= label_tag :email_address, "Email"%>
+      <%= email_field_tag :email_address, "", class:"form-control, col-sm-12" %>
+    </div>
 
-    <%= submit_tag "Sign In", :class => 'btn btn-primary'%>
+
+      <%= label_tag :password, "Password"%>
+      <%= password_field_tag :password, "",  class:"form-control, col-sm-12" %>
+
+    <hr>
+
+    <div>
+      <%= submit_tag "Sign In", :class => 'btn btn-primary'%>
+    </div>
+
   <% end %>
 
 </div>
