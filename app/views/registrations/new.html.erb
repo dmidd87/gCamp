@@ -9,7 +9,7 @@
   <div id="error_explanation">
     <ul class="list-unstyled">
     <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <div style="color:red"><li><%= msg %></li><div>
     <% end %>
     </ul>
   </div>
