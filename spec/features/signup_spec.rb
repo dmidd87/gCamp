@@ -29,6 +29,9 @@ require 'rails_helper'
 
     expect(page).to have_content "Stan"
     expect(page).to have_content "example@example.com"
+      click_on "Sign Out"
+    expect(page).to have_no_content "example@example.com"
+
 
   end
 
