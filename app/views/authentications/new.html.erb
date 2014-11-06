@@ -4,7 +4,15 @@
 
     <h2>Log in to gCamp</h2>
 
+  <div class="text-danger">
       <%= form_tag signin_path do |f| %>
+
+        <% if @sign_in_error %>
+    <font size= "3">
+      <%= @sign_in_error %>
+    </font>
+        <% end %>
+  </div>
 
     <div>
         <%= label_tag :email_address, "Email"%>

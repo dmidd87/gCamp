@@ -1,47 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <title>gCamp</title>
-    <%= stylesheet_link_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= csrf_meta_tags %>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>gCamp</title>
+
+    <%= stylesheet_link_tag 'application' %>
+
   </head>
 
-  <body>
-  <div class="navbar navbar-inverse" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <%= link_to "gCamp", root_path, id:"gCamphome" %>
-      </div>
-        <div class="navbar-header, text-right">
-            <div>
+  <body style= "padding-top:100px"<% if request.path == '/' %> class="full" <% end %>>
 
-  <% if current_user %>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <ul class="navbar-brand">
+          <font size= "6"><%= link_to "gCamp", root_path %> </font>
+        </ul>
+        <ul class= "navbar-brand navbar-nav navbar-right">
+         <li class= "list list-unstyled"><% if current_user %>
 
-    <%= link_to current_user.first_name, current_user %>
-    <%= link_to "Sign Out", signout_path %>
+         <%= link_to ("#{current_user.first_name} #{current_user.last_name}"), user_path(current_user) %>
 
+         <%= link_to "Sign Out", signout_path %>
 
-  <% else %>
+    <% else %>
 
-    <%= link_to "Sign Up", sign_up_path %>
+         <%= link_to "Sign Up", signup_path %>
 
-    |
+         <%= link_to "Sign In", signin_path %>
 
-    <%= link_to "Sign In", signin_path %>
-
-  <% end %>
-  </div>
+    <% end %></li>
+        </ul>
         </div>
-    </div>
+      </div>
+
+  <div class= "container">
+    <% if notice %>
+        <div class= "alert-success text-center" role= "alert">
+          <strong><p> <%= notice %></p></strong>
+        </div>
+    <% end %>
+
+    <%= yield %>
   </div>
 
+<hr>
 
-  <%= yield %>
-
-
-    <footer class= "footer navbar-fixed-bottom">
+    <footer class="navbar-fixed-bottom">
       <div class = "container">
         <hr>
       <%= link_to_unless_current "About", about_path %> |

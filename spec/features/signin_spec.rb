@@ -3,7 +3,7 @@ require 'rails_helper'
   feature "Sign-in" do
 
     scenario "User signs up" do
-      visit sign_up_path
+      visit signup_path
 
     fill_in "First name", with: "David"
     fill_in "Last name", with: "Example"
@@ -37,8 +37,6 @@ require 'rails_helper'
     fill_in "Email", with: "example@example.com"
     fill_in "Password", with: "password"
       click_on "Enter"
-
-    expect(page).to have_content "Stan"
 
       click_on "Sign Out"
 

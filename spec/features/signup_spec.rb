@@ -3,7 +3,7 @@ require 'rails_helper'
   feature "Sign-up" do
 
     scenario "User signs up" do
-      visit sign_up_path
+      visit signup_path
 
     fill_in "First name", with: "David"
     fill_in "Last name", with: "Example"
