@@ -25,10 +25,13 @@ feature "User auth" do
     expect(page).to have_no_content @user.first_name
   end
 
-  scenario "Trying new stuff" do
-    p @user
-    @user.password = nil
-    p @user
+  scenario "User cannot sign up without password" do
+    visit signup_path
+    fill_in "First name", with: @user.first_name
+    fill_in "Last name", with: @user.last_name
+    fill_in "Email address", with: @user.email_address
+    click_on "Register"
+    expect(page).to have_content "Password can't be blank"
   end
 
 end
