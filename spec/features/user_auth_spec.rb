@@ -25,4 +25,10 @@ feature "User auth" do
     expect(page).to have_no_content @user.first_name
   end
 
+  scenario "Trying new stuff" do
+    p @user
+    @user.password = nil
+    p @user
+  end
+
 end
