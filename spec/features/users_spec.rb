@@ -40,3 +40,31 @@ feature "Users" do
   end
 
 end
+
+
+#
+#
+
+#       click_on "David"
+#
+#     expect(page).to have_content "David"
+#     expect(page).to have_content "Example"
+#     expect(page).to have_content "example@example.com"
+#       click_on "Edit"
+#
+#     expect(page).to have_content "First name"
+#     fill_in "First name", with: "Stan"
+#       click_on "Update User"
+#
+#     expect(page).to have_content "Stan"
+#       click_on "Back"
+#
+#     expect(page).to have_content "Stan"
+#     expect(page).to have_content "example@example.com"
+#       click_on "Sign Out"
+#     expect(page).to have_no_content "example@example.com"
+#
+#
+#   end
+#
+# end
