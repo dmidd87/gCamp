@@ -13,7 +13,6 @@ feature "Projects" do
         expect(page).to have_content "My awesome project!"
       click_on "Edit"
 
-
       fill_in "Name", with: "My edited project!"
       click_on "Update Project"
 

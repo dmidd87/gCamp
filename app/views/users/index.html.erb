@@ -1,4 +1,6 @@
-<%= link_to 'Create User', new_user_path, class: "btn btn-info"%>
+<div class="container">
+
+<%= link_to 'Create User', new_user_path, class: "btn btn-info pull-right"%>
 
      <table class="table">
        <thead>
@@ -8,13 +10,19 @@
          </tr>
        </thead>
 
-       <tbody>  
+       <tbody>
          <% @users.each do |user| %>
            <tr>
                <td><%= link_to user.first_name, user_path(user) %><%= link_to user.last_name, user_path(user) %></td>
                <td><%= link_to user.email_address, user_path(user) %></td>
-               <td><%= link_to 'Edit', edit_user_path(user)%></td>
+               <td class="form-actions">
+                 <%= link_to 'Destroy', edit_user_path(user), class: "btn btn-danger pull-right"%>
+                 <%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary pull-right"%>
+                 <%= link_to 'Show', user_path(user), class: "btn btn-success pull-right"%>
+               </td>
            </tr>
          <% end %>
        </tbody>
      </table>
+
+</div>
