@@ -16,9 +16,9 @@
                <td><%= link_to user.first_name, user_path(user) %><%= link_to user.last_name, user_path(user) %></td>
                <td><%= link_to user.email_address, user_path(user) %></td>
                <td class="form-actions">
-                 <%= link_to 'Destroy', edit_user_path(user), class: "btn btn-danger pull-right"%>
-                 <%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary pull-right"%>
-                 <%= link_to 'Show', user_path(user), class: "btn btn-success pull-right"%>
+                 <%= link_to 'Show', user, class: "btn btn-success" %>
+                 <%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary" %>
+                 <%= link_to 'Destroy ', user, class:"btn btn-danger btn-large", method: :delete, data: { confirm: 'Are you sure?' } %>
                </td>
            </tr>
          <% end %>

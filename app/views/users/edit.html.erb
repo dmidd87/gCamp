@@ -2,10 +2,9 @@
 
     <%= render 'form' %>
 
-    <%= link_to 'Show', @user %> |
-    <%= link_to 'Back', users_path %>
-
     <br>
-  <div class= "well">
-      <%= link_to 'Destroy', user_path, class: "btn btn-danger", method: :delete %>
+  <div class="col-sm-offset-2 col-sm-4 well well-lg text-center">
+    <%= link_to 'Delete User', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  <%= link_to 'Show', @user %> |
+  <%= link_to 'Back', users_path %>
   </div>
