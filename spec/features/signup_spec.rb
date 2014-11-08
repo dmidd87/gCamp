@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-  feature "Sign-in" do
+  feature "Sign-up" do
 
   scenario "User signs up" do
       visit signup_path
