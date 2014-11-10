@@ -34,4 +34,6 @@ feature "User auth" do
     expect(page).to have_content "Password can't be blank"
   end
 
+  
+
 end

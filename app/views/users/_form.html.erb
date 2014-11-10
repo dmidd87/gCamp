@@ -1,6 +1,16 @@
 <div class= "form-horizontal">
   <%= form_for(@user) do |f| %>
 
+
+    <% if @user.errors !=nil %>
+      <% @user.errors.full_messages.each do |error| %>
+      <div class="alert alert-danger">
+      <%= error %>
+      </div>
+    <% end %>
+  <% end %>
+
+
   <div class="form-group">
     <%= f.label :first_name, "First Name", class: "col-sm-2 control-label" %>
       <div class="col-sm-5">
