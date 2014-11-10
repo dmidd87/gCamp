@@ -5,9 +5,8 @@
       <% @user.errors.full_messages.each do |error| %>
       <div class="alert alert-danger">
       <%= error %>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
 
   <div class="form-group">
     <%= f.label :first_name, "First Name", class: "col-sm-2 control-label" %>

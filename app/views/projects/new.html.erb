@@ -6,6 +6,14 @@
   <div class= "form-horizontal">
     <%= form_for(@project) do |f| %>
 
+    <% if @project.errors !=nil %>
+      <% @project.errors.full_messages.each do |error| %>
+      <div class="alert alert-danger">
+      <%= error %>
+      </div>
+      <% end %>
+    <% end %>
+
     <div class="form-group">
       <%= f.label :name, "Name", class: "col-sm-2 control-label" %>
         <div class="col-sm-5">

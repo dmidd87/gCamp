@@ -32,4 +32,10 @@ feature "Projects" do
       expect(page). to have_no_content "My edited project!"
   end
 
+  scenario "User tries to make a project without a name" do
+    visit projects_path
+    click_on "Create Project"
+    click_on "Create Project"
+    expect(page). to have_content "Name can't be blank"
+  end
 end
