@@ -32,4 +32,12 @@ feature "Tasks" do
       click_on "Destroy"
       expect(page).to have_no_content "My awesome task!"
   end
+
+  scenario "User leaves out description" do |variable|
+    visit tasks_path
+      click_on "Create Task"
+      fill_in "Due", with: "12/12/2012"
+      click_on "Create Task"
+      expect(page).to have_content "Description can't be blank"
+  end
 end
