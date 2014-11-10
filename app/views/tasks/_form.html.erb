@@ -1,13 +1,18 @@
 <%= form_for(@task) do |f| %>
 
-  <% if @task.errors !=nil %>
-  <div id="error_explanation">
-    <% @task.errors.full_messages.each do |error| %>
-    <div class="alert alert-danger">
-      <%= error %>
-    </div>
-      <% end %>
-  <% end %>
+  <% if @task.errors.any? %>
+      <div id="error_explanation" class="form-group">
+        <div class="alert alert-danger col-sm-offset-2 col-sm-4">
+          <h4><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h4>
+
+          <ul>
+          <% @task.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
 
   <!-- <% if @task.errors.any? %>
     <div id="error_explanation"> -->
