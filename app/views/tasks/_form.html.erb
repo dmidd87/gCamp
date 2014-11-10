@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
@@ -21,11 +21,11 @@
     <%= f.check_box :complete %>
   <% end %>
 
-  <div class="due">
+  <div class="due form-group">
     <%= f.label :due %>
     <%= f.date_field :due %>
 
-  <div class="actions">
+  <div class="actions form-group">
     <%= f.submit %>
   </div>
 

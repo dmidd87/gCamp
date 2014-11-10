@@ -54,6 +54,18 @@ feature "Users" do
       expect(page).to have_content "example@example.com"
   end
 
+  scenario "User doesn't fill in first or last name" do
+    visit users_path
+      click_on "Create User"
+      fill_in "Email address", with: "example@example.com"
+      fill_in "Password", with: "password"
+      fill_in "Password confirmation", with: "password"
+      click_on "Create User"
+      expect(page).to have_content "First name can't be blank"
+      expect(page).to have_content "Last name can't be blank"
+
+  end
+
   #     click_on "Destroy"
   #
   #   expect(page).to have_no_content "Stan"
