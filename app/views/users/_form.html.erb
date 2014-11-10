@@ -1,12 +1,18 @@
 <div class= "form-horizontal">
   <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation" class="form-group">
+          <div class="alert alert-danger col-sm-offset-2 col-sm-4">
+            <h4><%= pluralize(@user.errors.count, "error") %> prohibited this task from being saved:</h4>
 
-    <% if @user.errors !=nil %>
-      <% @user.errors.full_messages.each do |error| %>
-      <div class="alert alert-danger">
-      <%= error %>
+            <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
       <% end %>
-    <% end %>
 
   <div class="form-group">
     <%= f.label :first_name, "First Name", class: "col-sm-2 control-label" %>
