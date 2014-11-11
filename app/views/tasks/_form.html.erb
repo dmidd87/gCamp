@@ -1,35 +1,49 @@
-<%= form_for(@task) do |f| %>
+<%= form_for(@task, html: {class: "form-horizontal"}) do |f| %>
 
   <% if @task.errors.any? %>
-      <div id="error_explanation" class="form-group">
-        <div class="alert alert-danger col-sm-offset-2 col-sm-4">
-          <h4><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h4>
+    <div id="error_explanation" class="form-group">
+      <div class="alert alert-danger col-sm-offset-1 col-sm-3">
+        <h4><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h4>
 
-          <ul>
-          <% @task.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
+        <ul>
+        <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
   <div class="field form-group">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+      <%= f.label :description, :class => 'col-sm-1 control-label' %>
+      <div class="col-sm-3">
+        <%= f.text_field :description, :class => "form-control"%>
+      </div>
+    </div>
+
+   <div class="field form-group">
+      <%= f.label :due, :class => 'col-sm-1 control-label' %>
+      <div class="col-sm-3">
+        <%= f.date_field :due, :class => "col-sm-10 form-control" %>
+      </div>
   </div>
 
-  <% if !current_page?(new_task_path) %>
-    <%= f.label :complete %>
-    <%= f.check_box :complete %>
-  <% end %>
-
-  <div class="due form-group">
-    <%= f.label :due %>
-    <%= f.date_field :due %>
-
-  <div class="actions form-group">
-    <%= f.submit %>
+  <% if @new_task == false %>
+    <div class="form-group">
+    <div class="col-sm-offset-1 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :complete  %> Complete
+        </label>
+      </div>
+    </div>
   </div>
+  <% else %>
+    <% @task.complete = false %>
+  <%end%>
 
-  <% end %>
+  <div class="actions col-sm-offset-1">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+  <br>
+<% end %>
