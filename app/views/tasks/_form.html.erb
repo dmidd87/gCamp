@@ -28,12 +28,12 @@
       </div>
   </div>
 
-  <% if @new_task == false %>
+  <% if @task.id? %>
     <div class="form-group">
     <div class="col-sm-offset-1 col-sm-10">
       <div class="checkbox">
         <label>
-          <%= f.check_box :complete  %> Complete
+          <%= f.check_box :complete %> Complete
         </label>
       </div>
     </div>
