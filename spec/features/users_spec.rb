@@ -34,16 +34,13 @@ feature "Users" do
       click_on "Update User"
       expect(page).to have_content "Stan"
       expect(page).to have_content "Lee"
-      click_on "Back"
-      expect(page).to have_content "Stan"
-      expect(page).to have_content "Lee"
       expect(page).to have_content "example@example.com"
   end
 
   scenario "User deletes a user" do
     visit users_path
       click_on "Create User"
-      fill_in "First name", with: "David"
+      fill_in "First", with: "David"
       fill_in "Last name", with: "Example"
       fill_in "Email address", with: "example@example.com"
       fill_in "Password", with: "password"
@@ -57,12 +54,12 @@ feature "Users" do
   scenario "User doesn't fill in first or last name" do
     visit users_path
       click_on "Create User"
+      fill_in "Email", with: "example@example.com"
       fill_in "Password", with: "password"
       fill_in "Password confirmation", with: "password"
       click_on "Create User"
       expect(page).to have_content "First name can't be blank"
       expect(page).to have_content "Last name can't be blank"
-      expect(page).to have_content "Email can't be blank"
 
   end
 
