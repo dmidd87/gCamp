@@ -8,6 +8,8 @@ Twitter = https://twitter.com/DpMidd
 
 Github = github.com/dmidd87
 
+Travis = ![](https://travis-ci.org/dmidd87/gCamp)
+
 
 
 This README would normally document whatever steps are necessary to get the
