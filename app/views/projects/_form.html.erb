@@ -1,31 +1,19 @@
 <div class= "form-horizontal">
 
-  <%= form_for(@project) do |f| %>
+<%= render 'errorform/errorform' %>
 
-    <% if @project.errors.any? %>
-        <div id="error_explanation" class="form-group">
-          <div class="alert alert-danger col-sm-offset-2 col-sm-4">
-            <h4><%= pluralize(@project.errors.count, "error") %> prohibited this task from being saved:</h4>
-            <ul>
-            <% @project.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
+<%= form_for @project do |f| %>
+<div class="form-group">
+        <%= f.label :name, "Name", class: "col-sm-2 control-label" %>
+          <div class="col-sm-5">
+            <%= f.text_field :name, class: "form-control" %>
           </div>
-        </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.label :name, "Name", class: "col-sm-2 control-label" %>
-        <div class="col-sm-5">
-          <%= f.text_field :name, class: "form-control" %>
-        </div>
-    </div>
-
-    <div class="form-group">
-      <div class="col-sm-offset-2 col<%  %>sm-5"> <br>
-        <%= f.submit button_name:"Create Project", class: "btn btn-primary" %>
       </div>
-    </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col<%  %>sm-5"> <br>
+          <%= f.submit button_name:"Create Project", class: "btn btn-primary" %>
+        </div>
+      </div>
 </div>
-  <% end %>
+<% end %>
