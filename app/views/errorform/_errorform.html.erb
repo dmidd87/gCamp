@@ -1,14 +1,12 @@
-<%= form_for(@project) do |f| %>
-  <% if @project.errors.any? %>
+<% if model.errors.any? %>
       <div id="error_explanation" class="form-group">
         <div class="alert alert-danger col-sm-offset-2 col-sm-4">
-          <h4><%= pluralize(@project.errors.count, "error") %> prohibited this task from being saved:</h4>
+          <h4><%= pluralize(model.errors.count, "error") %> prohibited this task from being saved:</h4>
           <ul>
-          <% @project.errors.full_messages.each do |message| %>
+          <% model.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
           </ul>
         </div>
       </div>
-  <% end %>
 <% end %>
