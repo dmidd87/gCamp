@@ -8,7 +8,7 @@ Twitter = https://twitter.com/DpMidd
 
 Github = github.com/dmidd87
 
-Travis = ![](https://travis-ci.org/dmidd87/gCamp)
+Travis = [![Build Status](https://travis-ci.org/dmidd87/gCamp.svg?branch=master)](https://travis-ci.org/dmidd87/gCamp)
 
 
 

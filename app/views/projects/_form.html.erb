@@ -1,8 +1,9 @@
 <div class= "form-horizontal">
 
-<%= render 'errorform/errorform' %>
+<%= render 'errorform/errorform', model: @project %>
 
 <%= form_for @project do |f| %>
+
 <div class="form-group">
         <%= f.label :name, "Name", class: "col-sm-2 control-label" %>
           <div class="col-sm-5">
