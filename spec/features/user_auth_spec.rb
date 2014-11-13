@@ -7,7 +7,7 @@ feature "User auth" do
     @user = User.new(
       :first_name => "David",
       :last_name => "Example",
-      :email_address => "example@example.com",
+      :email_address => "david@example.com",
       :password => @password,
       :password_confirmation => @password
     )

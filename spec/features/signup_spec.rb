@@ -6,7 +6,7 @@ require 'rails_helper'
       visit signup_path
     fill_in "First name", with: "David"
     fill_in "Last name", with: "Example"
-    fill_in "Email address", with: "example@example.com"
+    fill_in "Email address", with: "one@example.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
     click_on "Register"
@@ -17,7 +17,7 @@ require 'rails_helper'
       visit signup_path
     fill_in "First name", with: "David"
     fill_in "Last name", with: "Example"
-    fill_in "Email address", with: "example@example.com"
+    fill_in "Email address", with: "two@example.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
     click_on "Register"
@@ -34,7 +34,7 @@ require 'rails_helper'
     visit signup_path
       fill_in "First name", with: "David"
       fill_in "Last name", with: "Example"
-      fill_in "Email address", with: "example@example.com"
+      fill_in "Email address", with: "three@example.com"
       fill_in "Password", with: "password"
       fill_in "Password confirmation", with: "password"
       click_on "Register"

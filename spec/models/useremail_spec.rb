@@ -3,7 +3,7 @@ require 'rails_helper'
   describe 'Email_Address' do
 
     it "validates the presence of a unique email address" do
-      email = User.new(email_address: "example@example.com")
+      email = User.new(email_address: "bob@example.com")
       email.valid?
       expect(email.errors[:email_address].present?).to eq(false)
     end
