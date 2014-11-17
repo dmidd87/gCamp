@@ -29,17 +29,16 @@ class TasksController < ApplicationController
   def create
     @task = @project.tasks.new(task_params)
       if @task.save
-        redirect_to @task, notice: 'Task was successfully created.'
+        redirect_to project_task_path(@project,@task), notice: 'Task was successfully created.'
       else
         render :new
       end
   end
-
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
       if @task.update(task_params)
-        redirect_to project_task_path(@project,@task) notice: 'Task was successfully updated.'
+        redirect_to project_task_path(@project,@task), notice: 'Task was successfully updated.'
       else
         render :edit
       end
@@ -48,11 +47,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task.destroy
-    respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
-      redirect_to project_tasks_path(@project)
-    end
+      redirect_to project_tasks_path(@project), notice: 'Task was successfully destroyed.'
   end
 
   private

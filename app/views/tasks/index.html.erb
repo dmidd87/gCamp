@@ -17,13 +17,13 @@
             <td><%= task.due %></td>
             <td><%= task.complete %></td>
             <td class="form-actions">
-              <%= link_to 'Show', task, class: "btn btn-success" %>
-              <%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary" %>
-              <%= link_to 'Destroy ', task, class:"btn btn-danger btn-large", method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Show', project_task_path(@project,task), class: "btn btn-success" %>
+              <%= link_to 'Edit', edit_project_task_path(@project,task), class: "btn btn-primary" %>
+              <%= link_to 'Destroy ', project_task_path(@project,task), class:"btn btn-danger btn-large", method: :delete, data: { confirm: 'Are you sure?' } %>
             </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <%= link_to 'Create Task', new_task_path, class: "btn btn-info"%>
+  <%= link_to 'Create Task', new_project_task_path(@project,@task), class: "btn btn-info"%>
 </div>
