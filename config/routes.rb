@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :tasks
-  resources :users
-  resources :projects
-
   root "pages#index"
+
+  resources :projects do
+  resources :tasks
+end
+  resources :users
 
   get "about" => "pages#about", as: :about
   get "terms" => "pages#terms", as: :terms
