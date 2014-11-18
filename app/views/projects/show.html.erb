@@ -9,9 +9,20 @@
   </header>
 </section>
 
+<div class="breadcrumb">
 <%= link_to_unless_current 'Projects', projects_path(@project) %> >
 <%= link_to_unless_current @project.name, project_path(@project) %> >
 <%= link_to_unless_current 'Tasks', project_tasks_path(@project,@task) %>
+</div>
 
-<%= link_to @project.tasks.count, project_tasks_path(@project)%><br>
+<br>
+
+<div class="container">
+<%= link_to "#{@project.tasks.count} tasks", project_tasks_path(@project)%>
+</div>
+
+<br>
+
+<div class="container">
 <%= link_to 'Back', projects_path %>
+</div>
