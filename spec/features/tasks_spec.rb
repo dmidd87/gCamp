@@ -51,13 +51,18 @@ feature "Tasks" do
       expect(page).to have_content "2014-12-12"
       click_on "Back"
       click_on "Destroy"
-      expect(page).to have_no_content "party"
+      expect(page).to have_no_content "part"
   end
 
   scenario "User leaves out description" do |variable|
-    visit tasks_path
+  visit projects_path
+      click_on "Create Project"
+      fill_in "Name", with: "New"
+      click_on "Create Project"
+      expect(page).to have_content "New"
+      click_on "0"
       click_on "Create Task"
-      fill_in "Due", with: "12/12/2012"
+      fill_in "Description", with: ""
       click_on "Create Task"
       expect(page).to have_content "Description can't be blank"
   end
