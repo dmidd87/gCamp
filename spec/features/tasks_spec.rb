@@ -2,15 +2,22 @@ require 'rails_helper'
 
 feature "Tasks" do
 
-  scenario "User creates a task" do
-    visit tasks_path
+  scenario "User creates a project" do
+    visit projects_path
+      click_on "Create Project"
+      fill_in "Name", with: "New"
+      click_on "Create Project"
+      expect(page).to have_content "New"
+      click_on "0"
       click_on "Create Task"
-      fill_in "Description", with: "My awesome task!"
+      fill_in "Description", with: "party"
+      fill_in "Due", with: "12-12-2014"
       click_on "Create Task"
-      expect(page).to have_content "My awesome task!"
+      expect(page).to have_content "party"
+      expect(page).to have_content "2014-12-12"
   end
 
-  scenario "User edits a task" do
+  scenario "User edits a task after making a project" do
     visit tasks_path
       click_on "Create Task"
       fill_in "Description", with: "My awesome task!"

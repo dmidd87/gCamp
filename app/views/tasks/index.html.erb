@@ -1,5 +1,12 @@
 <div class="container">
-  <h1 class="page-header">Tasks</h1>
+  <div class="page-header"><h1>Tasks for <%= @project.name %></h1>
+    <div class="breadcrumbs">
+      <%= link_to_unless_current 'Projects', projects_path(@project) %> >
+      <%= link_to_unless_current @project.name, project_path(@project) %> >
+      <%= link_to_unless_current 'Tasks', project_tasks_path(@project,@task) %>
+    </div>
+  </div>
+
   <table class="table">
     <thead>
       <tr>

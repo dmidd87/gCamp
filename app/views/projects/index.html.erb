@@ -6,7 +6,7 @@
 
     <h1>Projects</h1>
   </div>
-   
+
   <table class = "table">
     <thead>
       <tr>
@@ -18,8 +18,9 @@
     <tbody>
       <% @projects.each do |project| %>
         <tr>
-          <td><%= link_to project.name, project_path(project) %></td>
-            <td>
+          <td><%= link_to project.name, project_path(project) %>
+          <%= link_to project.tasks.count, project_tasks_path(project) %>
+          </td>
         </tr>
       <% end %>
     </tbody>
