@@ -37,14 +37,21 @@ feature "Tasks" do
   end
 
   scenario "User deletes a task" do
-    visit tasks_path
+    visit projects_path
+      click_on "Create Project"
+      fill_in "Name", with: "New"
+      click_on "Create Project"
+      expect(page).to have_content "New"
+      click_on "0"
       click_on "Create Task"
-      fill_in "Description", with: "My awesome task!"
+      fill_in "Description", with: "party"
+      fill_in "Due", with: "12-12-2014"
       click_on "Create Task"
-      expect(page).to have_content "My awesome task!"
+      expect(page).to have_content "party"
+      expect(page).to have_content "2014-12-12"
       click_on "Back"
       click_on "Destroy"
-      expect(page).to have_no_content "My awesome task!"
+      expect(page).to have_no_content "party"
   end
 
   scenario "User leaves out description" do |variable|
