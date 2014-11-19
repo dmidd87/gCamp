@@ -6,6 +6,13 @@
 <%= link_to_unless_current 'Memberships', project_memberships_path(@project) %>
 </div>
 
-Form for goes here in well
+<%= form_for([@project, @membership], html: {class: "form-horizonal"}) do |f| %>
 
-List of users goes here
+  <div class="form-group">
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, User.all, :id, :full_name,
+      {include_blank: "Please select.."},
+      {class: "dropdown-toggle form-control"} %>
+  </div>
+
+<% end %>

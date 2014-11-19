@@ -6,7 +6,6 @@
     end
 
     def show
-
     end
 
     def update
