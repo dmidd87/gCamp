@@ -1,8 +1,7 @@
 class AddpagesController <ApplicationController
+
   def about
-
   end
-
 
   def faq
 
@@ -25,9 +24,5 @@ class AddpagesController <ApplicationController
     your mind.  Organization is only (well, will only) be a click away.  Amazing!"
 
     @faqs = [faq1, faq2, faq3]
-
-
-
   end
-
 end
