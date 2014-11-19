@@ -5,8 +5,8 @@ class MembershipsController < ApplicationController
   end
 
   def index
-    @membership = @project.memberships.new
-    @memberships = @project.memberships.all
+    @membership = Membership.new
+    @memberships = @project.memberships
   end
 
   def new
@@ -16,15 +16,21 @@ class MembershipsController < ApplicationController
   def create
     @membership = @project.memberships.new(membership_params)
       if @membership.save
-        redirect_to project_memberships_path(@membership,@project),
-        notice: "#{@membership.user.full_name} was created successfully"
+        redirect_to project_memberships_path(@project,@membership),
+        notice: "#{@membership.user.full_name} was added to this project successfully"
       else
         @memberships = @project.memberships.all
         render :index
       end
   end
 
-  private 
+  def destroy
+    membership = Membership.find(params[:id])
+    membership.destroy
+    redirect_to project_memberships_path, notice: " #{membership.user.full_name} was removed successfully."
+  end
+
+  private
     def membership_params
       params.require(:membership).permit(:role, :user_id, :project_id)
   end
