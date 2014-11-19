@@ -18,9 +18,9 @@
 <div class="container">
 <%= link_to "#{@project.tasks.count} tasks", project_tasks_path(@project)%>
 </div>
-
+<br>
 <div class="container">
-  <%= link_to "Members",  %>
+  <%= link_to "Members", project_memberships_path(@project) %>
 </div>
 
 <br>

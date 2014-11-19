@@ -1,1 +1,11 @@
-Membership index page!
+<h1>Manage Members</h1>
+
+<div class="breadcrumb">
+<%= link_to_unless_current 'Projects', projects_path(@project) %> >
+<%= link_to_unless_current @project.name, project_path(@project) %> >
+<%= link_to_unless_current 'Memberships', project_memberships_path(@project) %>
+</div>
+
+Form for goes here in well
+
+List of users goes here

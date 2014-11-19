@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root "pages#index"
 
   resources :projects do
-  resources :tasks
+    resources :tasks
+    resources :memberships
 end
   resources :users
 
