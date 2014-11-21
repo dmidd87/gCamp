@@ -6,4 +6,9 @@ class Membership < ActiveRecord::Base
   validates :user, :uniqueness => {scope: :project, message: "has already been added"}
   validates :user, presence: true
   validates :role, presence: true
+
+def full_name
+  "#{first_name} #{last_name}"
+end
+
 end
