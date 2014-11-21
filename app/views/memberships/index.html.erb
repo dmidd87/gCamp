@@ -6,9 +6,9 @@
   <%= link_to_unless_current 'Memberships', project_memberships_path(@project) %>
   </div>
 
-<div class="pull-left">
-  <%= render 'errorform/errorform', model: @membership %>
-</div>
+  <div>
+    <%= render 'membererrorform/membererror', model: @membership %>
+  </div>
 
   <%= form_for([@project, @membership], html: {class: "form-horizonal"}) do |f| %>
 
@@ -27,16 +27,16 @@
     <thead>
         <tr>
             <th>
-              User
+
             </th>
             <th>
-              Title
+
             </th>
             <th>
-              Update
+
             </th>
             <th>
-              Destroy
+
             </th>
         </tr>
     </thead>
