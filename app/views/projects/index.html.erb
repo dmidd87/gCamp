@@ -12,6 +12,7 @@
       <tr>
         <th>Name</th>
         <th>Tasks</th>
+        <th>Memberships</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -23,6 +24,9 @@
           </td>
           <td>
             <%= link_to "#{project.tasks.count} tasks", project_tasks_path(project) %>
+          </td>
+          <td>
+            <%= link_to "#{project.memberships.count} members", project_memberships_path(project) %>
           </td>
         </tr>
       <% end %>

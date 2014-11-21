@@ -20,7 +20,7 @@
 </div>
 <br>
 <div class="container">
-  <%= link_to "Memberships", project_memberships_path(@project) %>
+  <%= link_to "#{@project.memberships.count} members", project_memberships_path(@project) %>
 </div>
 
 <br>
