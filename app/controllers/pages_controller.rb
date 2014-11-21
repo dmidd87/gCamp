@@ -2,7 +2,6 @@ class PagesController < ApplicationController
 
   def index
 
-
     quote1 = Quote.new
     quote1.text = "Failure is not an option"
     quote1.author = "-Bob"
@@ -16,7 +15,5 @@ class PagesController < ApplicationController
     quote3.author = "-Stan"
 
     @quotes = [quote1, quote2, quote3]
-
   end
-
 end

@@ -54,8 +54,8 @@ feature "Tasks" do
       expect(page).to have_no_content "part"
   end
 
-  scenario "User leaves out description" do |variable|
-  visit projects_path
+  scenario "User leaves out description" do 
+    visit projects_path
       click_on "Create Project"
       fill_in "Name", with: "New"
       click_on "Create Project"
