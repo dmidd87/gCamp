@@ -1,12 +1,13 @@
 <div class="container">
 
-<h1><%= @project.name %> : Manage Members</h1>
-
-  <div class="breadcrumb">
-  <%= link_to_unless_current 'Projects', projects_path(@project) %> >
-  <%= link_to_unless_current @project.name, project_path(@project) %> >
-  <%= link_to_unless_current 'Memberships', project_memberships_path(@project) %>
-  </div>
+<div class="page-header">
+  <span class="h1"><%= @project.name %>: Manage Memberships</span>
+</div>
+<ol class="breadcrumb">
+  <li><%= link_to "Projects", projects_path %></li>
+  <li><%= link_to @project.name, project_path(@project) %></li>
+  <li class="active">Memberships</li>
+</ol>
 
 <div class="pull-left">
   <%= render 'errorform/errorform', model: @membership %>
