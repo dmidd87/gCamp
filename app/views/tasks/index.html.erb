@@ -2,6 +2,14 @@
   <div class="page-header"><h1>Tasks for <%= @project.name %>
   <%= link_to 'Create Task', new_project_task_path(@project,@task),
   class: "btn btn-info btn-large pull-right" %></h1>
+  <div class= "pull-right">
+    <%= link_to_unless_current 'All', project_tasks_path(sort_by: "all")  %> |
+    <%if params[:sort_by] == nil%>
+      Incomplete
+    <%else%>
+      <%= link_to 'Incomplete', project_tasks_path %>
+    <%end%>
+  </div>
     <div class="breadcrumbs">
       <%= link_to_unless_current 'Projects', projects_path(@project) %> >
       <%= link_to_unless_current @project.name, project_path(@project) %> >
