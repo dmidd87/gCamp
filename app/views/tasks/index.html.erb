@@ -34,9 +34,12 @@
             <td><%= task.due %></td>
             <td><%= task.complete %></td>
             <td class="form-actions">
+              <div class="pull-right">
               <%= link_to 'Show', project_task_path(@project,task), class: "btn btn-success" %>
               <%= link_to 'Edit', edit_project_task_path(@project,task), class: "btn btn-primary" %>
-              <%= link_to 'Destroy ', project_task_path(@project,task), class:"btn btn-danger btn-large", method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Destroy ', project_task_path(@project,task), class:"btn btn-danger btn-large",
+               method: :delete, data: { confirm: 'Are you sure?' } %>
+             </div>
             </td>
         </tr>
       <% end %>
