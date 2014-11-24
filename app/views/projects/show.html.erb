@@ -16,11 +16,13 @@
 </div>
 
 <div class="container">
-<%= link_to "#{@project.tasks.count} tasks", project_tasks_path(@project)%>
+<%= link_to (pluralize(@project.tasks.count, "Task")), project_tasks_path(@project, @tasks)%>
 </div>
+
 <br>
+
 <div class="container">
-  <%= link_to "#{@project.memberships.count} members", project_memberships_path(@project) %>
+  <%= link_to (pluralize(@project.memberships.count,"Member")), project_memberships_path(@project) %>
 </div>
 
 <br>
