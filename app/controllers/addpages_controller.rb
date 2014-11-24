@@ -5,6 +5,8 @@ class AddpagesController <ApplicationController
 
   def faq
 
+    @faqs = [faq1, faq2, faq3]
+
     faq1 = Faq.new
     faq1.title = "What is gCamp?"
     faq1.body = "gCamp is an awesome tool that is going to change your life. gCamp is your one stop shop to organize all your tasks
@@ -22,7 +24,5 @@ class AddpagesController <ApplicationController
     faq3.body = "gCamp is a work in progress.  That being said, it shoudl be fully functional by December 2014.  Functional, but our developers are going to continue
     to improve the sight for hte foreseeable future.  Check in daily for new features and awesome functionality.  It's going to blow
     your mind.  Organization is only (well, will only) be a click away.  Amazing!"
-
-    @faqs = [faq1, faq2, faq3]
   end
 end

@@ -23,10 +23,10 @@
           <td><%= link_to project.name, project_path(project) %><br>
           </td>
           <td>
-            <%= link_to "#{project.tasks.count} tasks", project_tasks_path(project) %>
+            <%= link_to "#{project.tasks.count}", project_tasks_path(project) %>
           </td>
           <td>
-            <%= link_to "#{project.memberships.count} members", project_memberships_path(project) %>
+            <%= link_to "#{project.memberships.count}", project_memberships_path(project) %>
           </td>
         </tr>
       <% end %>
