@@ -11,7 +11,7 @@ group :production do
   gem "rails_12factor"
 end
 
-gem 'faker', '~> 1.4.3'
+gem 'faker'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
