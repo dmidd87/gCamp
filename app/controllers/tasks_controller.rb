@@ -15,17 +15,13 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = @project.tasks.find(params[:id])
+    @comment = @task.comments.new
   end
 
-  # GET /tasks/1/edit
   def edit
     @task = @project.tasks.find(params[:id])
   end
-  # might need to change this later for nested resources
 
-  # POST /tasks
-  # POST /tasks.json
   def create
     @task = @project.tasks.new(task_params)
       if @task.save
@@ -43,22 +39,18 @@ class TasksController < ApplicationController
         render :edit
       end
   end
-  # DELETE /tasks/1
-  # DELETE /tasks/1.json
+
   def destroy
     @task.destroy
       redirect_to project_tasks_path(@project), notice: 'Task was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:description, :checkbox, :due, :complete)
     end
-
 end

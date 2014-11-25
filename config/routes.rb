@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root "pages#index"
 
+  resources :comments
+
   resources :projects do
     resources :tasks
     resources :memberships
