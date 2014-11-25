@@ -1,8 +1,5 @@
-
-    <div class="col-md-offset-4 col-md-4">
-      <div class="well">
   <h2>Register for gCamp!</h2>
-  
+
 <%= render 'errorform/errorform', model: @user %>
 
   <%= form_for @user, url: signup_path do |f| %>
@@ -35,5 +32,3 @@
         <%= submit_tag "Register", :class => 'btn btn-primary'%>
 
   <% end %>
-      </div>
-    </div>
