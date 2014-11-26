@@ -10,11 +10,11 @@
       <%= link_to 'Incomplete', project_tasks_path %>
     <%end%>
   </div>
-    <ul class="breadcrumbs">
-      <%= link_to_unless_current 'Projects', projects_path(@project) %> >
-      <%= link_to_unless_current @project.name, project_path(@project) %> >
-      <%= link_to_unless_current 'Tasks', project_tasks_path(@project,@task) %>
-    </ul>
+      <ol class="breadcrumb">
+        <li><a><%= link_to "Projects", projects_path %> </a></li>
+        <li><a><%= link_to @project.name, project_path(@project) %> </a></li>
+        <li class= "active">Tasks</li>
+      </ol>
   </div>
 
   <table class="table">
