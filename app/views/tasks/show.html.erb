@@ -1,14 +1,18 @@
 <div class="page-header">
-  <h1><%= @task.description %></h1><%= link_to 'Edit', edit_project_task_path(@project,@task), class: "btn btn-info pull-right" %>
+<%= link_to 'Edit', edit_project_task_path(@project,@task), class: "btn btn-info pull-right" %>
+  <h2><%= @task.description %></h2>
 </div>
+
 <p>
   <strong>Date:</strong>
   <%= @task.due %>
 </p>
+
 <p>
   <strong>Complete:</strong>
   <%= @task.complete %>
 </p>
+
 <%= link_to 'Back', project_tasks_path(@project) %>
 
 <h2>Comments</h2>
