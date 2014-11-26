@@ -15,7 +15,8 @@ class TasksController < ApplicationController
   end
 
   def show
-    @comment = @task.comments.new
+    @comment = Comment.new
+    @comments = @task.comments.all
   end
 
   def edit
@@ -30,8 +31,7 @@ class TasksController < ApplicationController
         render :new
       end
   end
-  # PATCH/PUT /tasks/1
-  # PATCH/PUT /tasks/1.json
+
   def update
       if @task.update(task_params)
         redirect_to project_task_path(@project,@task), notice: 'Task was successfully updated.'
@@ -51,6 +51,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:description, :checkbox, :due, :complete)
+      params.require(:task).permit(:project_id, :description, :checkbox, :due, :complete)
     end
 end

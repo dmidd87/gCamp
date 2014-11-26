@@ -20,7 +20,9 @@ feature "Memberships" do
       click_on "Create Project"
       expect(page).to have_content "Foo"
       click_on "Memberships"
-      select "Foo", :from "membership_user_id"
+      select "Foo", from: "membership_user_id"
+      click_on "Add New Member"
+        
     end
 
 end

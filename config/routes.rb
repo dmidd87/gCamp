@@ -22,4 +22,6 @@ end
 
   get '/sign-out' => 'authentications#destroy', as: :signout
 
+  post '/projects/:project_id/tasks/:id/comments' => "comments#create", as: :new_task_comments
+
 end
