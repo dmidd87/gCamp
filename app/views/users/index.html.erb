@@ -1,17 +1,18 @@
-<%= link_to 'Create User', new_user_path, class: "btn btn-info"%>
-
-     <table class="table">
-       <thead>
-         <tr>
-           <th>Name</th>
-           <th>Email</th>
-         </tr>
-       </thead>
-
-       <tbody>
-         <% @users.each do |user| %>
+<div class="page-header">
+  <%= link_to 'Create User', new_user_path, class: "btn btn-info"%>
+       <table class="table">
+         <thead>
            <tr>
-               <td><%= link_to user.first_name, user_path(user) %><%= " " %><%= link_to user.last_name, user_path(user) %></td>
+             <th>Name</th>
+             <th>Email</th>
+           </tr>
+         </thead>
+         <tbody>
+           <% @users.each do |user| %>
+</div>
+           <tr>
+               <td><%= link_to user.first_name, user_path(user) %><%= " " %>
+               <%= link_to user.last_name, user_path(user) %></td>
                <td><%= link_to user.email_address, user_path(user) %></td>
                <td class="form-actions">
                  <div class="pull-right">
