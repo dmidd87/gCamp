@@ -1,34 +1,34 @@
+<div class="well well-lg col-md-4 col-md-offset-4">
   <h2>Register for gCamp!</h2>
-
+  
 <%= render 'errorform/errorform', model: @user %>
 
   <%= form_for @user, url: signup_path do |f| %>
-    <div class="First Name">
+    <div class="form-group">
       <%= f.label :first_name %>
       <%= f.text_field :first_name, class:"form-control, col-sm-12" %>
     </div>
 
-    <div class="Last Name">
+    <div class="form-group">
       <%= f.label :last_name %>
       <%= f.text_field :last_name, class:"form-control, col-sm-12" %>
     </div>
 
-    <div class="Email">
+    <div class="form-group">
       <%= f.label :email_address %>
       <%= f.email_field :email_address, class:"form-control, col-sm-12" %>
     </div>
 
-    <div class="Password">
+    <div class="form-group">
       <%= f.label :password %>
       <%= f.password_field :password, class:"form-control, col-sm-12" %>
 
-    <div class="Password Confirmation">
+    <div class="form-group">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class:"form-control, col-sm-12" %>
     </div>
-
     <hr>
-
         <%= submit_tag "Register", :class => 'btn btn-primary'%>
 
   <% end %>
+</div>
