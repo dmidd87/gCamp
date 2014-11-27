@@ -21,8 +21,8 @@
     <thead>
       <tr>
         <th>Description</th>
-        <th>Due Date</th>
         <th>Completed</th>
+        <th>Due</th>
         <th></th>
       </tr>
     </thead>
@@ -32,18 +32,19 @@
         <tr>
           <td><%= task.description %></td>
             <td><% if task.due %>
-                    <%= task.due.strftime("%m/%d/%Y") %>
-                    <% else nil %>
-                  <%end%>
-            </td>
+                  <%= task.due.strftime("%m/%d/%Y") %>
             <td><%= task.complete %></td>
-            <td class="form-actions">
-              <div class="pull-right">
-              <%= link_to 'Edit', edit_project_task_path(@project,task), class: "btn btn-primary" %>
-              <%= link_to "", project_task_path(@project,task),
-               method: :delete, data: { confirm: 'Are you sure?' },
-               class: "glyphicon glyphicon-remove" %>
+                <% else nil %>
+                <%end%>
+                <td class="form-actions">
+                <div class="pull-right">
+                <%= link_to 'Edit', edit_project_task_path(@project,task), class: "btn btn-primary" %>
+                <%= link_to "", project_task_path(@project,task),
+                 method: :delete, data: { confirm: 'Are you sure?' },
+                 class: "taskglyph glyphicon glyphicon-remove" %>
+
              </div>
+            </td>
           </td>
         </tr>
       <% end %>
