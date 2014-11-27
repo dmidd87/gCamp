@@ -37,5 +37,5 @@
 
 <%= form_for [@comment], url: new_task_comments_path(@project,@task) do |f| %>
   <%= f.text_area :comment, :class => 'form-control' %>
-  <%= f.submit class: "btn btn-primary" %>
+  <%= f.submit class: "taskshowsubmit btn btn-primary" %>
 <% end %>
