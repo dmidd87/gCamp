@@ -1,6 +1,6 @@
 <section class= "container">
   <header class= "page-header">
-    
+
     <div class="pull-right">
       <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-info" %>
       <%= link_to 'Destroy', project_path(@project), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
@@ -9,11 +9,10 @@
   </header>
 </section>
 
-<div class="breadcrumb">
-<%= link_to_unless_current 'Projects', projects_path(@project) %> >
-<%= link_to_unless_current @project.name, project_path(@project) %> >
-<%= link_to_unless_current 'Tasks', project_tasks_path(@project,@task) %>
-</div>
+<ol class="breadcrumb">
+  <li><%= link_to "Projects", projects_path %></li>
+  <li class="active"><%= @project.name %></li>
+</ol>
 
 <div class="container">
 <%= link_to (pluralize(@project.tasks.count, "Task")), project_tasks_path(@project, @tasks)%>
