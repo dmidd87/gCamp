@@ -1,6 +1,6 @@
 <%= form_for([@project,@task], html: {class: "form-horizontal"}) do |f| %>
 
-  <%= render 'errorform/errorform', model: @task %>
+  <%= render 'shared/shared_errors', model: @task %>
 
   <div class="field form-group">
       <%= f.label :description, :class => 'col-sm-1 control-label' %>
