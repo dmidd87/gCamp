@@ -3,7 +3,6 @@
 
     <div class="pull-right">
       <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-info" %>
-      <%= link_to 'Destroy', project_path(@project), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     </div>
     <h1><strong><%= @project.name %></strong></h1>
   </header>
@@ -26,6 +25,12 @@
 
 <br>
 
-<div class="container">
-<%= link_to 'Back', projects_path %>
+<div class="well form-inline col-sm-7">
+  <div class="form-group">
+  <strong>Delete Project</strong>
+  <p>Deleting this project will also delete <%= pluralize(@project.memberships.count, "Membership") %>,
+    <%= pluralize(@project.tasks.count, "Task") %>, and associated comments.</p>
+    <%= link_to 'Destroy', project_path(@project), method: :delete,
+    data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  </div>
 </div>
