@@ -1,7 +1,7 @@
 <div class= "form-horizontal">
   <%= form_for(@user) do |f| %>
 
-<%= render 'shared/sharederrors', model: @user %>
+<%= render 'shared/shared_errors', model: @user %>
 
   <div class="form-group">
     <%= f.label :first_name, "First name", class: "col-sm-2 control-label" %>
