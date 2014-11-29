@@ -7,7 +7,7 @@
 </ol>
 
   <div>
-    <%= render 'membererrorform/membererror', model: @membership %>
+    <%= render 'shared/shared_errors', model: @membership %>
   </div>
 
   <%= form_for([@project,@membership], html: {class: "form-horizonal"}) do |f| %>
