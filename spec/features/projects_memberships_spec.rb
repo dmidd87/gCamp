@@ -19,10 +19,9 @@ feature "Memberships" do
       fill_in "Name", with: "Foo"
       click_on "Create Project"
       expect(page).to have_content "Foo"
-      click_on "Memberships"
-      select "Foo", from: "membership_user_id"
-      click_on "Add New Member"
-        
+      click_on "0 Members"
+      select "David Example", from: "membership_user_id"
+      click_on "Add new member"
+      expect(page).to have_content "David Example"
     end
-
 end
