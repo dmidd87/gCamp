@@ -1,7 +1,7 @@
 namespace :invalid do
 
   desc "find bad data"
-  task find: :enviroment do
+  task find: :environment do
     missing_a_membership_user = Membership.where.not(user_id: User.all).count
     missing_a_membership_project = Membership.where.not(project_id: Project.all).count
     missing_a_comment_task = Comment.where.not(task_id: Task.all).count
@@ -13,13 +13,13 @@ namespace :invalid do
   end
 
   desc "delete invalid memberships"
-  task memberships: :enviroment do
+  task memberships: :environment do
     Membership.where.not(user_id: User.pluck(:id)).delete_all
     Membership.where.not(project_id: Project.pluck(:id)).delete_all
   end
 
   desc "delete invalid comments"
-  task comments: :enviorment do
+  task comments: :environment do
     Comment.where.not(task_id: Task.pluck(:id)).delete_all
     Comment.where.not(user_id: User.pluck(:id)).delete_all
   end
