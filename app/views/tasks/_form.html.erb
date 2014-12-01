@@ -3,15 +3,15 @@
   <%= render 'shared/shared_errors', model: @task %>
 
   <div class="field form-group">
-      <%= f.label :description, :class => 'col-sm-1 control-label' %>
-      <div class="col-sm-3">
+      <%= f.label :description, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-5">
         <%= f.text_field :description, :class => "form-control"%>
       </div>
     </div>
 
    <div class="field form-group">
-      <%= f.label :due, :class => 'col-sm-1 control-label' %>
-      <div class="col-sm-3">
+      <%= f.label :due, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-5">
         <%= f.date_field :due, :class => "col-sm-10 form-control" %>
       </div>
   </div>

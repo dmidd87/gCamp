@@ -21,8 +21,8 @@
     <thead>
       <tr>
         <th>Description</th>
-        <th>Completed</th>
         <th>Due</th>
+        <th>Completed</th>
         <th></th>
       </tr>
     </thead>
@@ -33,11 +33,12 @@
           <td><%= link_to task.description, project_task_path(@project, task)%>
           <span class="badge"><%= task.comments.count%></span>
           </td>
-            <td><% if task.due %>
-                  <%= task.due.strftime("%m/%d/%Y") %>
-            <td><%= task.complete %></td>
-                <% else nil %>
-                <%end%>
+            <td>
+          <% if task.due %>
+            <%= task.due.strftime("%m/%d/%Y") %>
+          <% else nil %>
+          <%end%>
+            </td>
                 <td class="form-actions">
                 <div class="pull-right">
                 <%= link_to 'Edit', edit_project_task_path(@project,task), class: "btn btn-primary" %>
