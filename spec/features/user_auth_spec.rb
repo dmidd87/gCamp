@@ -14,7 +14,7 @@ feature "User auth" do
   end
 
   scenario "Existing user signs up, out, and in and is
-  redirected to projects index"
+  redirected to projects index" do
     register(@user,@password)
     expect(page).to have_content @user.first_name
     click_on "Sign Out"
@@ -23,6 +23,24 @@ feature "User auth" do
     fill_in "Password", with: "password"
     click_on "Enter"
     expect(page).to have_content "Create Project"
+  end
+
+  scenario "User creates a project and is automatically listed as owner" do
+    register(@user,@password)
+    expect(page).to have_content @user.first_name
+    click_on "Sign Out"
+    click_on "Sign In"
+    fill_in "Email", with: "david@example.com"
+    fill_in "Password", with: "password"
+    click_on "Enter"
+    expect(page).to have_content "Create Project"
+    click_on "Create Project"
+    fill_in "Name", with: "Assignment"
+    click_on "Create Project"
+    click_on "1 Member"
+    expect(page).to have_content "David Example"
+    expect(page).to have_content "Owner"
+  end
 
   scenario "User can sign up" do
     register(@user,@password)
