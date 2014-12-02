@@ -4,6 +4,6 @@ require 'rails_helper'
 
     scenario "Visitor loads homepage" do
       visit root_path
-      expect(page).to have_no_content "Projects"
+      expect(page).to have_content "Sign In"
     end
 end

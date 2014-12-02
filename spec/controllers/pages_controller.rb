@@ -1,12 +1,19 @@
 describe PagesController do
-  describe "" do
-    it "redirects visitor to index page" do
-      get :index
-      expect(response).to render_template("index")
+  describe "Pages" do
+    it "redirects visitor to login page if they try to access projects" do
+      get :projects
+      expect(response).to redirect_to(signin_path)
     end
-    it "redirects sometimes" do
-      session[:foo] = "bar"
-      get :index
+    it "redirects visitor to login page if they try to access users" do
+      get :users
+      expect(response).to redirect_to(signin_path)
+    end
+    it "redirects visitor to login page if they try to access tasks" do
+      get :tasks
+      expect(response).to redirect_to(signin_path)
+    end
+    it "redirects visitor to login page if they try to access memberships" do
+      get :memberships
       expect(response).to redirect_to(signin_path)
     end
   end
