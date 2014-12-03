@@ -1,5 +1,6 @@
 describe PagesController do
   describe "Pages" do
+    
     it "redirects visitor to login page if they try to access projects" do
       get :projects
       expect(response).to redirect_to(signin_path)
