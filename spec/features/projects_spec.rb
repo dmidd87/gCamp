@@ -51,6 +51,7 @@ feature "Projects" do
   end
 
   scenario "User creates a project and is automatically listed as owner" do
+    pending
       register(@user,@password)
       expect(page).to have_content @user.first_name
       click_on "Sign Out"

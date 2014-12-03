@@ -15,6 +15,7 @@ feature "User auth" do
 
   scenario "Existing user signs up, out, and in and is
   redirected to projects index" do
+    pending
     register(@user,@password)
     expect(page).to have_content @user.first_name
     click_on "Sign Out"
