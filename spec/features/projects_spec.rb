@@ -11,6 +11,9 @@ feature "Projects" do
       :password => @password,
       :password_confirmation => @password
     )
+    # visit signin_path
+    # fill_in :email, with: "david...."
+    # click_on "Signin"
   end
 
   scenario "User creates a project" do

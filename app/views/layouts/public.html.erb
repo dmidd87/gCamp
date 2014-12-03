@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>gCamp</title>
+
+    <%= stylesheet_link_tag 'application' %>
+
+  </head>
+
+  <body style= "padding-top:100px"<% if request.path == '/' %> class="full" <% end %>>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+
+          <%= link_to "gCamp", root_path, class: "navbar-brand" %>
+
+        <ul class= "navbar-nav navbar-right nav">
+          <% if current_user %>
+           <li><%= link_to ("#{current_user.first_name} #{current_user.last_name}"), user_path(current_user) %></li>
+           <li><%= link_to "Sign Out", signout_path %></li>
+          <% else %>
+           <li><%= link_to "Sign Up", signup_path %></li>
+           <li><%= link_to "Sign In", signin_path %></li>
+          <% end %>
+        </li>
+        </ul>
+        </div>
+      </div>
+
+  <div class= "container">
+    <% if notice %>
+        <div class= "alert alert-success text-center" role= "alert">
+          <strong><p> <%= notice %></p></strong>
+        </div>
+    <% end %>
+
+    <%= yield %>
+  </div>
+
+<hr>
+
+    <footer>
+      <div class = "container">
+
+      <%= link_to_unless_current "About", about_path %> |
+      <%= link_to_unless_current "Terms", terms_path %> |
+      <%= link_to_unless_current "FAQ", faq_path %> |
+
+      <div class = "icons pull-right">
+        <%= link_to "https://www.twitter.com/dpmidd" do %>
+          <%= image_tag("twitterlogo.png", width: "20em") %>
+        <% end %>
+
+        <%= link_to "https://www.github.com/dmidd87" do %>
+          <%= image_tag("github.png", width: "20em") %>
+        <% end %>
+
+        <%= link_to "https://www.linkedin.com/pub/david-middleton/49/48a/788" do %>
+          <%= image_tag("linkedin.png", width: "20em") %>
+        <% end %>
+      </div>
+      </div>
+    </footer>
+    <%= javascript_include_tag 'application' %>
+  </body>
+</html>

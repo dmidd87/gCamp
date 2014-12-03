@@ -18,7 +18,6 @@ class CommentsController < ApplicationController
     :user_id,
     :task_id,
     :comment,
-    :created_at,
-    :updated_at)
+    )
   end
 end

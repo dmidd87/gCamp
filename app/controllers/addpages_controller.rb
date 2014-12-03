@@ -1,4 +1,4 @@
-class AddpagesController <ApplicationController
+class AddpagesController < PublicController
 
   def about
   end
