@@ -53,9 +53,4 @@ feature "User auth" do
     register(@user,@password)
     expect(page).to have_content "Email address has already been taken"
   end
-
-
-
-
-
 end
