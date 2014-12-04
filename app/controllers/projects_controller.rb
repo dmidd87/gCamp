@@ -14,6 +14,7 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
     @project = Project.new(project_params)
     if
       @project.save
+      Membership.create!(project_id: @project.id, user_id: current_user.id, role: "owner")
       redirect_to project_tasks_path(@project), notice: 'Project was successfully created.'
     else
       render :new
