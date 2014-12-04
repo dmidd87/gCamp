@@ -8,10 +8,11 @@ gem "pg"
 
 gem 'pry-rails'
 
+gem 'faker'
+
 group :production do
 
   gem "rails_12factor"
-  gem 'faker'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
