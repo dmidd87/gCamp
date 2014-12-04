@@ -6,12 +6,13 @@ gem 'autoprefixer-rails'
 
 gem "pg"
 
+gem 'pry-rails'
+
 group :production do
 
   gem "rails_12factor"
+  gem 'faker'
 end
-
-gem 'faker'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -52,5 +53,3 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-gem 'pry-rails'
