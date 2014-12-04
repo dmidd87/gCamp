@@ -22,12 +22,12 @@ describe CommentsController do
             comment: {
               :user_id => user.id,
               :task_id => task.id,
-              :comment => "waht's up?",
+              :comment => "what's up?",
             }
 
       expect(response).to redirect_to(project_task_path(project, task))
       comment = Comment.last
-      expect(comment.comment).to eq("waht's up?")
+      expect(comment.comment).to eq("what's up?")
     end
   end
 end
