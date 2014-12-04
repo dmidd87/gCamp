@@ -15,7 +15,6 @@ describe CommentsController do
       task = Task.create!(description: "Test", project: project)
 
       session[:user_id] = user.id
-
       post :create,
             project_id: project.id,
             id: task.id,
@@ -24,7 +23,6 @@ describe CommentsController do
               :task_id => task.id,
               :comment => "what's up?",
             }
-
       expect(response).to redirect_to(project_task_path(project, task))
       comment = Comment.last
       expect(comment.comment).to eq("what's up?")
