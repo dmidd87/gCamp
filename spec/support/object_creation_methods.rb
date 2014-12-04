@@ -20,7 +20,6 @@ module ObjectCreationMethods
     User.create(defaults.merge(overrides))
   end
 
-
   def create_membership(overrides = {})
     defaults = {
       user: create_user,

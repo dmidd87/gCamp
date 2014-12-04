@@ -14,7 +14,7 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
     @project = Project.new(project_params)
     if
       @project.save
-      redirect_to project_path(@project), notice: 'Project was successfully created.'
+      redirect_to project_tasks_path(@project), notice: 'Project was successfully created.'
     else
       render :new
     end
