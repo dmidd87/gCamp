@@ -11,9 +11,49 @@ feature "Projects" do
       :password => @password,
       :password_confirmation => @password
     )
-    # visit signin_path
-    # fill_in :email, with: "david...."
-    # click_on "Signin"
+
+  end
+
+  scenario "Users can only see projects they are members of on the projects index page" do
+
+    user1 = User.create(
+    :first_name => "David",
+    :last_name => "Example",
+    :email_address => "david@example.com",
+    :password => "password",
+    :password_confirmation => "password"
+    )
+    project1 = Project.create(
+    :name => "Test1"
+    )
+    membership1 = Membership.create(
+    :user_id => user1.id,
+    :project_id => project1.id,
+    :role => "owner"
+    )
+
+    user2 = User.create(
+    :first_name => "Bob",
+    :last_name => "Pants",
+    :email_address => "bob@example.com",
+    :password => @password,
+    :password_confirmation => @password
+    )
+    project2 = Project.create(
+    :name => "Test1"
+    )
+    membership2 = Membership.create(
+    :user_id => user2.id,
+    :project_id => project2.id,
+    :role => "owner"
+    )
+
+    visit root_path
+    click_on "Sign In"
+    fill_in "Email", with: "david@example.com"
+    fill_in "Password", with: "password"
+    click_on "Enter"
+    expect(page).to have_no_content(project2.name)
   end
 
   scenario "User creates a project" do
