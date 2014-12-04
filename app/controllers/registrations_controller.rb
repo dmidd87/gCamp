@@ -1,5 +1,7 @@
 class RegistrationsController < ApplicationController
 
+  skip_before_action :validates_user_is_present
+
   def new
     @user = User.new
   end

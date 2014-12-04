@@ -13,9 +13,7 @@ feature "User auth" do
     )
   end
 
-  scenario "Existing user signs up, out, and in and is
-  redirected to projects index" do
-    pending
+  scenario "Existing signs in and is redirected to projects index" do
     register(@user,@password)
     expect(page).to have_content @user.first_name
     click_on "Sign Out"
@@ -23,7 +21,7 @@ feature "User auth" do
     fill_in "Email", with: "david@example.com"
     fill_in "Password", with: "password"
     click_on "Enter"
-    expect(page).to have_content "Create Project"
+    expect(page).to have_content "Projects"
   end
 
   scenario "User can sign up" do
