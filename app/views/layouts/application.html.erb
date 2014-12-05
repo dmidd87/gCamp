@@ -19,8 +19,24 @@
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
 
-          <%= link_to "gCamp", root_path, class: "navbar-brand" %>
-        
+          <%= link_to "gCamp", projects_path, class: "navbar-brand" %>
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                My Projects
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <% current_user.projects.each do |project| %>
+                <li><%= link_to project.name, project_path(project) %></li>
+                <% end %>
+                <li class="divider"></li>
+                <li><%= link_to "New Project", new_project_path %></li>
+              </ul>
+            </li>
+            <li><%= link_to "Users", users_path %></li>
+          </ul>
+
         <ul class= "navbar-nav navbar-right nav">
           <% if current_user %>
            <li><%= link_to ("#{current_user.first_name} #{current_user.last_name}"), user_path(current_user) %></li>
@@ -37,7 +53,7 @@
   <div class= "container">
     <% if notice %>
         <div class= "alert alert-success text-center" role= "alert">
-          <strong><p> <%= notice %></p></strong>
+          <strong><p><%= notice %></p></strong>
         </div>
     <% end %>
 
@@ -46,28 +62,14 @@
 
 <hr>
 
-    <footer>
+    <footer style="text-align:center">
       <div class = "container">
 
+      <%= link_to_unless_current "Home", root_path %> |
       <%= link_to_unless_current "About", about_path %> |
       <%= link_to_unless_current "Terms", terms_path %> |
-      <%= link_to_unless_current "FAQ", faq_path %> |
-      <%= link_to_unless_current "Users", users_path %> |
-      <%= link_to_unless_current "Projects", projects_path %>
+      <%= link_to_unless_current "FAQ", faq_path %>
 
-
-      <div class = "icons pull-right">
-        <%= link_to "https://www.twitter.com/dpmidd" do %>
-          <%= image_tag("twitterlogo.png", width: "20em") %>
-        <% end %>
-
-        <%= link_to "https://www.github.com/dmidd87" do %>
-          <%= image_tag("github.png", width: "20em") %>
-        <% end %>
-
-        <%= link_to "https://www.linkedin.com/pub/david-middleton/49/48a/788" do %>
-          <%= image_tag("linkedin.png", width: "20em") %>
-        <% end %>
       </div>
       </div>
     </footer>
