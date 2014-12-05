@@ -98,18 +98,13 @@ feature "Projects" do
   end
 
   scenario "User creates a project and is automatically listed as owner" do
-    pending
       register(@user,@password)
       expect(page).to have_content @user.first_name
-      click_on "Sign Out"
-      click_on "Sign In"
-      fill_in "Email", with: "david@example.com"
-      fill_in "Password", with: "password"
-      click_on "Enter"
-      expect(page).to have_content "Create Project"
+      expect(page).to have_content "New Project"
       click_on "Create Project"
       fill_in "Name", with: "Assignment"
       click_on "Create Project"
+      click_on "Assignment"
       click_on "1 Member"
       expect(page).to have_content "David Example"
       expect(page).to have_content "Owner"
