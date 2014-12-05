@@ -1,6 +1,6 @@
   class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
-    before_action :edit_user, only: [:edit, :update, :destroy]
+    before_action :edit_user, only: [:edit, :update, :destroy, :admin]
 
     def index
       @users = User.all
