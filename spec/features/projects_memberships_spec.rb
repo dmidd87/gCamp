@@ -15,11 +15,12 @@ feature "Memberships" do
       click_on "Create Project"
       expect(page).to have_content "test project Tasks"
       expect(Membership.last.role).to eq("owner")
-      
+
   end
 
   scenario "User adds a user to a membership" do
     visit users_path
+    pending
       click_on "Create User"
       fill_in "First name", with: "David"
       fill_in "Last name", with: "Example"

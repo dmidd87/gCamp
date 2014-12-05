@@ -3,7 +3,6 @@ require 'rails_helper'
   feature "Sign-up" do
 
   scenario "New user signs up and is redirected to new projects page" do
-    pending
       visit signup_path
     fill_in "First name", with: "David"
     fill_in "Last name", with: "Example"
