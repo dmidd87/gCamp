@@ -11,6 +11,16 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  class AccessDenied < StandardError
+
+  end
+
+  rescue_from AccessDenied, with: :access_denied
+
+  def access_denied
+    render "public/404", layout: false, status: 404
+  end
+
   def validates_user_is_present
     redirect_to signin_path, notice: "You must be logged in to access that information" unless current_user.present?
   end

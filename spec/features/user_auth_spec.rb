@@ -13,6 +13,10 @@ feature "User auth" do
     )
   end
 
+  scenario "New user signs in and can see the new layout" do
+    
+  end
+
   scenario "Existing signs in and is redirected to projects index" do
     register(@user,@password)
     expect(page).to have_content @user.first_name

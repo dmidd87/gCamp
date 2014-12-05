@@ -1,5 +1,6 @@
   class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
+    before_action :edit_user, only: [:edit, :update, :destroy]
 
     def index
       @users = User.all
@@ -39,6 +40,12 @@
     end
 
     private
+
+    def edit_user
+      unless current_user.id == @user.id
+        raise AccessDenied
+      end
+    end
 
     def set_user
       @user = User.find(params[:id])
