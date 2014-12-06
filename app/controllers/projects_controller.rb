@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
 before_action :set_project, only: [:show, :edit, :update, :destroy]
+before_action :current_user_is_owner_to_edit, only: [:edit, :update, :destroy]
 
   def index
     @projects = current_user.projects
@@ -44,8 +45,19 @@ private
     @project = Project.find(params[:id])
   end
 
-def project_params
+  def project_params
     params.require(:project).permit(:name)
-end
+  end
 
+  def current_user_is_owner_to_edit
+    current_membership = @project.memberships.where(user_id: current_user.id)
+    current_membership.each do |membership|
+      if (membership.role == "owner") || (current_user.admin == true)
+        @current_project_owner = true
+      else
+        @current_project_owner = false
+        raise AccessDenied
+      end
+    end
+  end
 end

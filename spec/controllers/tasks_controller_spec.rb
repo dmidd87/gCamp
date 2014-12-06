@@ -30,7 +30,6 @@ describe TasksController do
       user2 = create_user2
       session[:user2_id] = user.id
       expect(response.status).to eq(404)
-
     end
   end
 end

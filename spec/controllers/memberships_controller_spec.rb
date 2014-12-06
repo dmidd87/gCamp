@@ -10,5 +10,23 @@ describe MembershipsController do
       get :index, project_id: project.id, membership_id: membership.id
       expect(response).to redirect_to(signin_path)
     end
+
+    it "displays memberships only to users who are members of that project" do
+      user = create_user
+      project = create_project
+      task = create_task(project)
+      membership = create_member(user,project)
+      session[:user_id] = user.id
+      get :index, project_id: project.id, membership_id: membership.id
+      expect(response).to be_success
+    end
+
+    it "does not allow non-members of projects to view memberships" do
+      project = create_project
+      user = create_user
+      session[:user_id] = user.id
+      get :index, {project_id: project.id}
+      expect(response.status).to eq(404)
+    end
   end
 end
