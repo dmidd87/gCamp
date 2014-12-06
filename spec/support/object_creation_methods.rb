@@ -1,7 +1,5 @@
-module ObjectCreationMethods
-
   def new_project(overrides = {})
-    defaults = { description: Faker::Company.name }
+    defaults = { name: Faker::Company.name }
     Project.new(defaults.merge(overrides))
   end
 
@@ -60,5 +58,3 @@ module ObjectCreationMethods
     create_user
     session[:user_id] = create_user.id
   end
-
-end

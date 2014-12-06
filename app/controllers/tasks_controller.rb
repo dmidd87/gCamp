@@ -5,7 +5,6 @@ class TasksController < ApplicationController
   end
 
   before_action :tasks_id_match
-
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -52,7 +51,7 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
     end
 
-    def task_params
-      params.require(:task).permit(:project_id, :description, :checkbox, :due, :complete)
-    end
+  def task_params
+    params.require(:task).permit(:project_id, :description, :checkbox, :due, :complete)
+  end
 end
