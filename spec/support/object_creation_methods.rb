@@ -58,3 +58,14 @@
     create_user
     session[:user_id] = create_user.id
   end
+
+  def create_admin
+    User.create!(
+    first_name: "Test",
+    last_name: "Admin",
+    email: "admin@test.com",
+    password: "password",
+    password_confirmation: "password",
+    admin: true,
+    )
+  end
