@@ -8,11 +8,9 @@ class ApplicationController < ActionController::Base
   end
 
   before_action :validates_user_is_present
-
   helper_method :current_user
 
   class AccessDenied < StandardError
-
   end
 
   rescue_from AccessDenied, with: :access_denied
@@ -25,7 +23,26 @@ class ApplicationController < ActionController::Base
     redirect_to signin_path, notice: "You must be logged in to access that information" unless current_user.present?
   end
 
+  private
+
+  def memberships
+    @memberships = Membership.all
+  end
+
+  def ensure_project_member
+    project_list = Membership.where(user_id: current_user.id).pluck(:project_id)
+    @project = Project.find(params[:id])
+    unless project_list.include?(@project.id)
+      raise AccessDenied
+    end
+  end
+
   def tasks_id_match
+    project_list = Membership.where(user_id: current_user.id).pluck(:project_id)
+    @project = Project.find(params[:project_id])
+    unless project_list.include?(@project.id)
+      raise AccessDenied
+    end
   end
 
 end
