@@ -2,6 +2,10 @@ require 'rails_helper'
 
 feature "Tasks" do
 
+  scenario "Users can only see tasks under projects that they are members of" do
+    pending
+  end
+
   scenario "When a user creates a project, they should be redirected to the tasks index page for that project" do
     visit root_path
       click_on "Sign Up"

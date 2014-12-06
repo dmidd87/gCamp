@@ -4,6 +4,8 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
+  before_action :tasks_id_match
+
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -6,8 +6,6 @@ gem 'autoprefixer-rails'
 
 gem "pg"
 
-gem 'pry-rails'
-
 gem 'faker'
 
 group :production do
@@ -41,6 +39,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'pry-rails'
 end
 
 # Use ActiveModel has_secure_password
