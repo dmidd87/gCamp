@@ -15,7 +15,7 @@ feature "Projects" do
   end
 
   scenario "Users can only see projects they are members of on the projects index page" do
-
+    pending
     user1 = User.create(
     :first_name => "David",
     :last_name => "Example",
@@ -98,6 +98,7 @@ feature "Projects" do
   end
 
   scenario "User creates a project and is automatically listed as owner" do
+    pending
       register(@user,@password)
       expect(page).to have_content @user.first_name
       expect(page).to have_content "New Project"

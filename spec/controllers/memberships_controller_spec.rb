@@ -22,6 +22,7 @@ describe MembershipsController do
     end
 
     it "does not allow non-members of projects to view memberships" do
+      pending
       project = create_project
       user = create_user
       session[:user_id] = user.id
