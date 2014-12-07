@@ -1,7 +1,6 @@
-<br>
-  <div class="col-sm-12">
-    <div class="col-sm-offset-4 col-sm-4">
-      <div class="well">  <h2>Register for gCamp!</h2>
+<div class="col-sm-12">
+  <div class="col-sm-offset-4 col-sm-4">
+    <div class="well">  <h2>Register for gCamp!</h2>
 
 <%= render 'shared/shared_errors', model: @user %>
 
@@ -30,11 +29,8 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class:"form-control" %>
     </div>
-    <hr>
         <%= submit_tag "Register", :class => 'btn btn-primary'%>
   <% end %>
-
-
     </div>
   </div>
 </div>
