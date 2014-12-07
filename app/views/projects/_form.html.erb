@@ -1,20 +1,23 @@
-<div class= "form-horizontal">
-
-<%= render 'shared/shared_errors', model: @project %>
-
 <%= form_for @project do |f| %>
 
-<div class="form-group">
-        <%= f.label :name, "Name", class: "col-sm-2 control-label" %>
-          <div class="col-sm-5">
-            <%= f.text_field :name, class: "form-control" %>
-          </div>
-      </div>
+<div class= "form-horizontal">
+  <div class= "form-group">
+    <div class= "col-sm-offset-1 col-sm-6">
+<%= render 'shared/shared_errors', model: @project %>
+    </div>
+  </div>
 
-      <div class="form-group">
-        <div class="col-sm-offset-2 col<%  %>sm-5"> <br>
-          <%= f.submit button_name:"Create Project", class: "btn btn-primary" %>
-        </div>
+  <div class="form-group">
+    <%= f.label :name, "Name", class: "col-sm-1" %>
+      <div class="col-sm-5">
+        <%= f.text_field :name, class: "form-control" %>
       </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-1 col-sm-11"> <br>
+      <%= f.submit button_name:"Create Project", class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
 </div>
-<% end %>
