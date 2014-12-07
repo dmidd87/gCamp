@@ -13,6 +13,8 @@ describe ProjectsController do
       get :index
       expect(response).to be_success
     end
+
+
   end
 
   describe "#new" do

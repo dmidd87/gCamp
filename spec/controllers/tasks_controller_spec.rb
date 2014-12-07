@@ -9,6 +9,7 @@ describe TasksController do
     end
 
     it "displays tasks to users who are members" do
+      pending
       user = create_user
       project = create_project
       task = create_task(project)
@@ -30,6 +31,14 @@ describe TasksController do
       user2 = create_user2
       session[:user2_id] = user.id
       expect(response.status).to eq(404)
+    end
+
+    it "redirects to tasks index after a user creates a project" do
+      pending
+      user = create_user
+      project = create_project
+      get :index, project_id: project.id
+      expect(response.status).to eq(200)
     end
   end
 end
