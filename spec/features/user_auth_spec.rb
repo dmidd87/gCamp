@@ -14,7 +14,14 @@ feature "User auth" do
   end
 
   scenario "New user signs in and can see the new layout" do
-    
+    visit signup_path
+    fill_in "First name", with: "David"
+    fill_in "Last name", with: "Example"
+    fill_in "Email address", with: "one@example.com"
+    fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "password"
+    click_on "Register"
+    expect(page).to have_content "Home"
   end
 
   scenario "Existing signs in and is redirected to projects index" do
