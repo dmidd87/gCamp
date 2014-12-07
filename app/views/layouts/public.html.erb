@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <%= csrf_meta_tags %>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<html>
+<head>
 
-    <title>gCamp</title>
+  <title>gCamp</title>
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag 'application' %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
+  <title>Jumbotron Template for Bootstrap</title>
   </head>
 
   <body style= "padding-top:100px"<% if request.path == '/' %> class="full" <% end %>>
