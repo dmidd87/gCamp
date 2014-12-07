@@ -11,7 +11,6 @@ feature "Projects" do
       :password => @password,
       :password_confirmation => @password
     )
-
   end
 
   scenario "Users can only see projects they are members of on the projects index page" do
