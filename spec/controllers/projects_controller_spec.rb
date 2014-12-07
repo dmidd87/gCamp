@@ -7,7 +7,7 @@ describe ProjectsController do
       expect(response).to redirect_to(signin_path)
     end
 
-    it "allows users to see" do
+    it "allows users to see projects index if they log in" do
       user = create_user
       session[:user_id] = user.id
       get :index
