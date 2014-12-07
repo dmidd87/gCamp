@@ -4,7 +4,6 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
 before_action :current_user_is_owner_to_edit, only: [:edit, :update, :destroy]
 before_action :current_user_has_project_permission, except: [:index, :new, :create, :destroy]
 
-
   def index
     @projects = current_user.projects
   end
