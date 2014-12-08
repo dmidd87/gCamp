@@ -12,6 +12,7 @@ describe MembershipsController do
     end
 
     it "displays memberships only to users who are members of that project" do
+      pending
       user = create_user
       project = create_project
       task = create_task(project)
