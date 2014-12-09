@@ -13,24 +13,26 @@ describe UsersController do
     end
   end
 
-  it "User can't edit any other other users but themselves" do
-    user1 = User.create!(first_name: "David", last_name: "Example", email_address: "david@example.com", password: "password")
-    user2 = User.create!(first_name: "Bob", last_name: "Hotdog", email_address: "bob@example.com", password: "password")
-    session[:user_id] = user1.id
-    get :edit, id: user2.id
-    expect(response.status).to eq(404)
-  end
+  describe "#edit" do
+    it "User can't edit any other other users but themselves" do
+      user1 = User.create!(first_name: "David", last_name: "Example", email_address: "david@example.com", password: "password")
+      user2 = User.create!(first_name: "Bob", last_name: "Hotdog", email_address: "bob@example.com", password: "password")
+      session[:user_id] = user1.id
+      get :edit, id: user2.id
+      expect(response.status).to eq(404)
+    end
 
-  it "User can edit themselves" do
-    user1 = User.create!(first_name: "David", last_name: "Example", email_address: "david@example.com", password: "password")
-    user2 = User.create!(first_name: "Bob", last_name: "Hotdog", email_address: "bob@example.com", password: "password")
-    session[:user_id] = user1.id
-    get :edit, id: user1.id
-    expect(response.status).to eq(200)
+    it "User can edit themselves" do
+      user1 = User.create!(first_name: "David", last_name: "Example", email_address: "david@example.com", password: "password")
+      user2 = User.create!(first_name: "Bob", last_name: "Hotdog", email_address: "bob@example.com", password: "password")
+      session[:user_id] = user1.id
+      get :edit, id: user1.id
+      expect(response.status).to eq(200)
+    end
   end
 
 describe "create" do
-  
+
   before do
     User.delete_all
   end
