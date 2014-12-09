@@ -8,7 +8,7 @@ describe ProjectsController do
     end
 
     it "allows existing users to see projects index if they log in" do
-      pending
+      User.delete_all
       user = create_user
       session[:user_id] = user.id
       get :index
@@ -18,7 +18,7 @@ describe ProjectsController do
 
   describe "#new" do
     it "redirects new logged in users to the projects new page" do
-      pending
+      User.delete_all
       user = create_user
       session[:user_id] = user.id
       get :new
@@ -28,7 +28,7 @@ describe ProjectsController do
 
   describe "#show" do
     it "shows users projects they are members of" do
-      pending
+      User.delete_all
       user = create_user
       project = create_project
       project2 = create_project2
@@ -39,7 +39,7 @@ describe ProjectsController do
     end
 
     it "does not show users projects they aren't members of" do
-      pending
+      User.delete_all
       user = create_user
       project = create_project
       session[:user_id] = user.id

@@ -2,10 +2,10 @@ require 'rails_helper'
 
 feature "Memberships" do
 
-  scenario "User adds self as member to new project and
+  scenario "User is automatically an owner of a new project and
   adds a comment to the comments page" do
     visit signup_path
-      pending
+    pending
       fill_in "First name", with: "David"
       fill_in "Last name", with: "Example"
       fill_in "Email address", with: "one@example.com"
@@ -13,17 +13,14 @@ feature "Memberships" do
       fill_in "Password confirmation", with: "password"
       click_on "Register"
       expect(page).to have_content "David"
-
-      click_on "Projects"
       click_on "Create Project"
       fill_in "Name", with: "Foo"
       click_on "Create Project"
       expect(page).to have_content "Foo"
-      click_on "0 Members"
-      select "David Example", from: "membership_user_id"
-      click_on "Add new member"
       expect(page).to have_content "David Example"
+
       click_on "Foo"
+
       click_on "0 Tasks"
       click_on "Create Task"
       fill_in "Description", with: "Example"
@@ -32,28 +29,29 @@ feature "Memberships" do
       click_on "Create Comment"
     end
 
-    scenario "User adds self as member to new project and
-    tries to add a blank comment to the comments page" do
-      visit signup_path
-        pending
-        fill_in "First name", with: "David"
-        fill_in "Last name", with: "Example"
-        fill_in "Email address", with: "one@example.com"
-        fill_in "Password", with: "password"
-        fill_in "Password confirmation", with: "password"
-        click_on "Register"
-        expect(page).to have_content "David"
+    scenario "User tries to add a blank comment to the comments page" do
 
-        click_on "Projects"
+        pending
+        user = create_user
+        # fill_in "First name", with: "David"
+        # fill_in "Last name", with: "Example"
+        # fill_in "Email address", with: "one@example.com"
+        # fill_in "Password", with: "password"
+        # fill_in "Password confirmation", with: "password"
+        # click_on "Register"
+        # expect(page).to have_content "David"
+
         click_on "Create Project"
         fill_in "Name", with: "Foo"
         click_on "Create Project"
         expect(page).to have_content "Foo"
-        click_on "0 Members"
-        select "David Example", from: "membership_user_id"
-        click_on "Add new member"
-        expect(page).to have_content "David Example"
+        # click_on "0 Members"
+        # select "David Example", from: "membership_user_id"
+        # click_on "Add new member"
+        # expect(page).to have_content "David Example"
+
         click_on "Foo"
+        
         click_on "0 Tasks"
         click_on "Create Task"
         fill_in "Description", with: ""
