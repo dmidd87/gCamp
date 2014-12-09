@@ -26,6 +26,10 @@ describe ProjectsController do
     end
   end
 
+  describe "#edit" do
+    
+  end
+
   describe "#show" do
     it "shows users projects they are members of" do
       User.delete_all

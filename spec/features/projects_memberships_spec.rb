@@ -19,7 +19,7 @@ feature "Memberships" do
 
   scenario "User who created a project adds a user as a member" do
     visit signup_path
-
+      pending
       fill_in "First name", with: "David"
       fill_in "Last name", with: "Example"
       fill_in "Email address", with: "example@gmail.com"
