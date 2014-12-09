@@ -18,7 +18,6 @@ describe MembershipsController do
 
   describe "#edit" do
     it "Only project owners can manage memberships" do
-      pending
     end
   end
 end
