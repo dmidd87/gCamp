@@ -9,10 +9,10 @@ gem "pg"
 gem 'faker'
 
 group :production do
-
   gem "rails_12factor"
 end
 
+gem 'faraday', '~> 0.9.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use SCSS for stylesheets
