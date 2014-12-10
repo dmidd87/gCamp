@@ -1,7 +1,6 @@
   class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
-    before_action :edit_user, only: [:edit, :update, :destroy, :admin]
-    before_action :current_user_can_edit_own_info, only: [:edit, :update, :destroy]
+    before_action :only_admin_or_self_can_change, only: [:edit, :update, :destroy]
 
     def index
       @users = User.all
@@ -41,15 +40,8 @@
 
     private
 
-    def edit_user
-      unless current_user.id == @user.id
-        raise AccessDenied
-      end
-    end
-
-    def current_user_can_edit_own_info
-      if @user.id == current_user.id || current_user.admin == true
-      else
+    def only_admin_or_self_can_change
+      unless @user.id == current_user.id || current_user.admin == true
         raise AccessDenied
       end
     end
@@ -59,6 +51,6 @@
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email_address, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email_address, :password, :password_confirmation, :pivot_token)
     end
 end
