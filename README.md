@@ -10,6 +10,8 @@ Github = github.com/dmidd87
 
 Travis = [![Build Status](https://travis-ci.org/dmidd87/gCamp.svg?branch=master)](https://travis-ci.org/dmidd87/gCamp)
 
+[![Code Climate](https://codeclimate.com/repos/548a22bfe30ba074e4004dc8/badges/2f1a847a393dbc9dd033/gpa.svg)](https://codeclimate.com/repos/548a22bfe30ba074e4004dc8/feed)
+
 
 
 This README would normally document whatever steps are necessary to get the

@@ -1,3 +1,0 @@
-class Trackerprojects < ApplicationController
-
-end
