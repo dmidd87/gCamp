@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :tasks
     resources :memberships
 end
+
+  resources :tracker_projects, only: [:show]
+
   resources :users
 
   get "about" => "pages#about", as: :about
