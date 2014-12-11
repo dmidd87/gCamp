@@ -30,3 +30,32 @@
       <% end %>
     </tbody>
   </table>
+
+<hr>
+
+<div class="page-header">
+  <h1>Pivotal Tracker Projects</h1>
+</div>
+
+<table class="table">
+  <thead>
+    <th>
+      Name
+    </th>
+  </thead>
+    <tbody>
+    <% unless @tracker_projects == nil %>
+    <% @tracker_projects.each do |project|%>
+    <tr>
+      <td>
+        <%= link_to project[:name], tracker_project_path(project[:id]) %>
+      </td>
+    </tr>
+    <%end%>
+    <% end %>
+  </tbody>
+</table>
+
+  <% @tracker_projects.each do |project| %>
+    <%= project %>
+  <% end %>
