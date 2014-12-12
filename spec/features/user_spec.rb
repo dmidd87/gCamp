@@ -2,42 +2,40 @@ require 'rails_helper'
 
 feature "Users" do
 
-scenario "User creates a user" do
-  visit users_path
-  pending
-    click_on "Create User"
-    fill_in "First name", with: "David"
-    fill_in "Last name", with: "Example"
-    fill_in "Email address", with: "ab@example.com"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
-    click_on "Create User"
-    expect(page).to have_content "David"
-    expect(page).to have_content "Example"
-    expect(page).to have_content "ab@example.com"
-end
+  before do
+    User.delete_all
+  end
 
-scenario "User edits his username" do
-  visit users_path
-  pending
+  scenario "User creates a user" do
+    user1 = create_user
+    visit root_path
+    click_on "Sign In"
+    fill_in "Email", with: "test@test.com"
+    fill_in "Password", with: "password"
+    click_on "Enter"
+    click_on "Users"
     click_on "Create User"
-    fill_in "First name", with: "Bob"
-    fill_in "Last name", with: "Example"
-    fill_in "Email address", with: "op@example.com"
+    fill_in "First name", with: "Stanley"
+    fill_in "Last name", with: "Yelnats"
+    fill_in "Email address", with: "stan@yel.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
     click_on "Create User"
-    expect(page).to have_content "Bob"
-    expect(page).to have_content "Example"
-    expect(page).to have_content "op@example.com"
-    click_on "Bob"
+    expect(page).to have_content "Stanley"
+  end
+
+  scenario "User edits his username" do
+    user1 = create_user
+    visit root_path
+    click_on "Sign In"
+    fill_in "Email", with: "test@test.com"
+    fill_in "Password", with: "password"
+    click_on "Enter"
+    click_on "Test User"
     click_on "Edit"
-    fill_in "First name", with: "Bill"
-    fill_in "Last name", with: "Lee"
+    fill_in "First name", with: "New"
     click_on "Update User"
-    expect(page).to have_content "Bill"
-    expect(page).to have_content "Lee"
-    expect(page).to have_content "op@example.com"
+    expect(page).to have_content "New"
   end
 
   scenario "User deletes a user" do

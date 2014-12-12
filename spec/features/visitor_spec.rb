@@ -7,12 +7,12 @@ feature "Visitors" do
     )
 
     visit projects_path
-    expect(page).to have_content('You must be logged in to access that information')
+      expect(page).to have_content('You must be logged in to access that information')
     visit project_tasks_path(project)
-    expect(page).to have_content('You must be logged in to access that information')
+      expect(page).to have_content('You must be logged in to access that information')
     visit project_memberships_path(project)
-    expect(page).to have_content('You must be logged in to access that information')
+      expect(page).to have_content('You must be logged in to access that information')
     visit users_path(project)
-    expect(page).to have_content('You must be logged in to access that information')
+      expect(page).to have_content('You must be logged in to access that information')
     end
 end
