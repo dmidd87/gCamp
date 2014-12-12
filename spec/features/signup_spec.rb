@@ -14,7 +14,6 @@ require 'rails_helper'
   end
 
   scenario "User signs up and clicks the gCamp logo" do
-    pending
       visit signup_path
     fill_in "First name", with: "David"
     fill_in "Last name", with: "Example"
@@ -24,10 +23,10 @@ require 'rails_helper'
     click_on "Register"
     expect(page).to have_content "David"
     click_on "gCamp"
-    expect(page).to have_content "Create Projects"
+    expect(page).to have_content "Create Project"
   end
 
-  scenario "User signs up and clicks the their name" do
+  scenario "User signs up and clicks the their name and sees the user edit page" do
       visit signup_path
     fill_in "First name", with: "David"
     fill_in "Last name", with: "Example"
@@ -57,7 +56,7 @@ require 'rails_helper'
     expect(page).to have_content "Stan"
   end
 
-  scenario "User signs out and signs back in" do
+  scenario "User signs up, out, and back in" do
     visit signup_path
       fill_in "First name", with: "David"
       fill_in "Last name", with: "Example"
@@ -69,9 +68,9 @@ require 'rails_helper'
       click_on "Sign Out"
       expect(page).to have_no_content "example@example.com"
       click_on "Sign In"
-      fill_in "Email", with: "example@example.com"
+      fill_in "Email", with: "three@example.com"
       fill_in "Password", with: "password"
       click_on "Enter"
-      expect(page).to have_content "Sign In"
+      expect(page).to have_content "Project"
   end
 end
