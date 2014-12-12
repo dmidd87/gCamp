@@ -107,11 +107,4 @@ feature "Projects" do
       click_on "Create Project"
       expect(page).to have_content "Name can't be blank"
   end
-
-  scenario "User creates a project and is automatically listed as owner" do
-    pending
-      user = create_user2
-      project = create_project
-      expect(page).to have_content "Owner"
-  end
 end
