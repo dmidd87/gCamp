@@ -25,7 +25,7 @@ describe MembershipsController do
   end
 
   describe "#delete" do
-    it "should not allow the last owner membership to be deleted"
+    it "should not allow the last owner membership to be deleted" do
     end
 
     it "only project owners can delete memberships" do
