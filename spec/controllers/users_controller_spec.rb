@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe UsersController do
+
 describe "#index" do
 
     before do
@@ -8,8 +9,8 @@ describe "#index" do
     end
 
   it "redirects visitor to login page if they try to access users" do
-      get :index
-      expect(response).to redirect_to(signin_path)
+    get :index
+    expect(response).to redirect_to(signin_path)
   end
 end
 
@@ -60,7 +61,7 @@ describe "#edit" do
     User.delete_all
   end
 
-  it "allows user to edit thier own page" do
+  it "allows user to edit their own page" do
     user = create_user
     session[:user_id] = user.id
     get :edit, id: user.id
