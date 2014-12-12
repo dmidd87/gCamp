@@ -14,7 +14,7 @@ describe ApplicationController do
       expect(response).to redirect_to(signin_path)
     end
 
-    it "allows logged-in users to see pages" do
+    it "allows logged-in users to see private layout" do
       user = User.create!(
         first_name: "David",
         last_name: "Example",

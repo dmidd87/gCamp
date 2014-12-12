@@ -14,7 +14,6 @@ feature "Projects" do
   end
 
   scenario "Users can only see projects they are members of on the projects index page" do
-    pending
     user1 = User.create(
     :first_name => "David",
     :last_name => "Example",
@@ -30,7 +29,6 @@ feature "Projects" do
     :project_id => project1.id,
     :role => "owner"
     )
-
     user2 = User.create(
     :first_name => "Bob",
     :last_name => "Pants",
@@ -39,14 +37,13 @@ feature "Projects" do
     :password_confirmation => @password
     )
     project2 = Project.create(
-    :name => "Test1"
+    :name => "Test2"
     )
     membership2 = Membership.create(
     :user_id => user2.id,
     :project_id => project2.id,
     :role => "owner"
     )
-
     visit root_path
     click_on "Sign In"
     fill_in "Email", with: "david@example.com"
@@ -55,26 +52,35 @@ feature "Projects" do
     expect(page).to have_no_content(project2.name)
   end
 
-  scenario "User creates a project" do
-    visit projects_path
-    pending
+  scenario "User signs up creates a project" do
+    visit root_path
+      click_on "Sign Up"
+      fill_in "First name", with: "David"
+      fill_in "Last name", with: "Example"
+      fill_in "Email address", with: "ab@example.com"
+      fill_in "Password", with: "password"
+      fill_in "Password confirmation", with: "password"
+      click_on "Register"
+      fill_in "Name", with: "test project"
       click_on "Create Project"
-      fill_in "Name", with: "My awesome project!"
-      click_on "Create Project"
-      expect(page).to have_content "My awesome project!"
+      expect(page).to have_content "test project"
   end
 
   scenario "User edits a project" do
-    visit projects_path
     pending
+    visit root_path
+      click_on "Sign Up"
+      fill_in "First name", with: "David"
+      fill_in "Last name", with: "Example"
+      fill_in "Email address", with: "ab@example.com"
+      fill_in "Password", with: "password"
+      fill_in "Password confirmation", with: "password"
+      click_on "Register"
+      fill_in "Name", with: "foobar"
       click_on "Create Project"
-      fill_in "Name", with: "My awesome project!"
-      click_on "Create Project"
-      expect(page).to have_content "My awesome project!"
-      click_on "Edit"
-      fill_in "Name", with: "My edited project!"
-      click_on "Update Project"
-      expect(page).to have_content "My edited project!"
+      expect(page).to have_content "foobar"
+      click_on "Projects"
+      select "foobar", from: "My Project"
   end
 
   scenario "User destroys a project" do
@@ -89,11 +95,17 @@ feature "Projects" do
   end
 
   scenario "User tries to make a project without a name" do
-    visit projects_path
-    pending
-    click_on "Create Project"
-    click_on "Create Project"
-    expect(page). to have_content "Name can't be blank"
+    visit root_path
+      click_on "Sign Up"
+      fill_in "First name", with: "David"
+      fill_in "Last name", with: "Example"
+      fill_in "Email address", with: "ab@example.com"
+      fill_in "Password", with: "password"
+      fill_in "Password confirmation", with: "password"
+      click_on "Register"
+      fill_in "Name", with: ""
+      click_on "Create Project"
+      expect(page).to have_content "Name can't be blank"
   end
 
   scenario "User creates a project and is automatically listed as owner" do
