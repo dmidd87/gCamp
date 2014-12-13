@@ -56,7 +56,7 @@ feature "User auth" do
     expect(page).to have_content "Password can't be blank"
   end
 
-  scenario "User cannot sign up without password" do
+  scenario "User cannot sign up with taken email address" do
     register(@user,@password)
     click_on "Sign Out"
     click_on "Sign Up"
