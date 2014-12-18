@@ -26,28 +26,23 @@ feature "Memberships" do
     end
 
     scenario "User tries to add a blank comment to the comments page" do
-        pending
-        user = create_user
-        # fill_in "First name", with: "David"
-        # fill_in "Last name", with: "Example"
-        # fill_in "Email address", with: "one@example.com"
-        # fill_in "Password", with: "password"
-        # fill_in "Password confirmation", with: "password"
-        # click_on "Register"
-        # expect(page).to have_content "David"
-        click_on "Create Project"
+        visit root_path
+        click_on "Sign Up"
+        fill_in "First name", with: "David"
+        fill_in "Last name", with: "Example"
+        fill_in "Email address", with: "one@example.com"
+        fill_in "Password", with: "password"
+        fill_in "Password confirmation", with: "password"
+        click_on "Register"
+        expect(page).to have_content "David"
         fill_in "Name", with: "Foo"
         click_on "Create Project"
         expect(page).to have_content "Foo"
-        # click_on "0 Members"
-        # select "David Example", from: "membership_user_id"
-        # click_on "Add new member"
-        # expect(page).to have_content "David Example
-        click_on "Foo"
-        click_on "0 Tasks"
         click_on "Create Task"
-        fill_in "Description", with: ""
+        fill_in "Description", with: "2"
         click_on "Create Task"
-        expect(page).to have_content "Description can't be blank"
+        fill_in "comment_comment", with: ""
+        click_on "Create Comment"
+        expect(page).to have_no_content "less than a minute ago"
       end
 end
