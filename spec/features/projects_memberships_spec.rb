@@ -54,25 +54,74 @@ feature "Memberships" do
     within('div.row') do
       expect(page).to have_content "owner"
     end
+    select "Test2 User", from: "membership_user_id"
+    click_on "Add New Member"
+    save_and_open_page
+    find('.glyphicon').click
+    expect(page).to have_content "Test2 User was removed successfully"
+  end
+
+  scenario "Admin user can manage memberships" do
+    admin = create_admin
+    user2 = create_user2
+    visit root_path
+    click_on "Sign In"
+    fill_in "Email", with: "admin@test.com"
+    fill_in "Password", with: "password"
+    click_on "Enter"
+    click_on "Create Project"
+    fill_in "Name", with: "test project"
+    click_on "Create Project"
+    within('ol.breadcrumb') do
+      click_on "test project"
+    end
+    click_on "1 Member"
+    within('div.row') do
+      expect(page).to have_content "owner"
+    end
     select "Test2", from: "membership_user_id"
     click_on "Add New Member"
     find('.glyphicon').click
     expect(page).to have_content "Test2 User was removed successfully"
   end
 
-  scenario "Admin user can manage memberships" do
-    pending
+  scenario "Project members can view memberships but not click on user and see the user edit page and they only see the delete icon for themselves" do
+    admin = create_admin
+    user2 = create_user2
+    visit root_path
+    click_on "Sign In"
+    fill_in "Email", with: "admin@test.com"
+    fill_in "Password", with: "password"
+    click_on "Enter"
+    click_on "Create Project"
+    fill_in "Name", with: "test project"
+    click_on "Create Project"
+    within('ol.breadcrumb') do
+      click_on "test project"
+    end
+    click_on "1 Member"
+    within('div.row') do
+      expect(page).to have_content "owner"
+    end
+    select "Test2", from: "membership_user_id"
+    click_on "Add New Member"
+    click_on "Sign Out"
+    click_on "Sign In"
+    fill_in "Email", with: "test2@test.com"
+    fill_in "Password", with: "password"
+    click_on "Enter"
+    click_on "2"
+    expect(page).to have_no_content("input.btn.btn-primary form-control")
+    expect(page).to have_css(".glyphicon", :count => 1)
+    click_on "Test2 User"
+    expect(page).to have_content("test2@test.com")
   end
 
-  scenario "Non project owners can view memberships but not click on user and see the user edit page" do
-    pending
+  scenario "Members can remove themselves from projects" do
+
   end
 
-  scenario "Non project owners can view memberships but not see create user form" do
-    pending
-  end
-
-  scenario "Users can remove themselves from projects" do
+  scenario "Owners cannot remove themselves from projects" do
     pending
   end
 end

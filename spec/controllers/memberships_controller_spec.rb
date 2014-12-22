@@ -18,15 +18,19 @@ describe MembershipsController do
 
   describe "#delete" do
     it "should not allow the last owner membership to be deleted" do
+      pending
     end
 
     it "only project owners can delete memberships" do
+      pending
     end
 
     it "admin can delete memberships" do
+      pending
     end
 
     it "project owners can delete memberships" do
+      pending
     end
   end
 end

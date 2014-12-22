@@ -1,0 +1,58 @@
+<% current_membership = @project.memberships.where(user_id: current_user.id) %>
+<% membership = Membership.new %>
+<%= form_for [@project, membership] do |f| %>
+  <div class="form-inline">
+    <div class="col-sm-5 well">
+      <div class="form-group">
+        <%= f.collection_select :user_id, User.all, :id, :full_name,
+        {include_blank: "Please select a user"},
+        {class: "form-control"}%>
+      </div>
+
+      <div class="form-group">
+        <%= f.select :role, ["member", "owner"], {}, {class:"form-control"} %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Add New Member", class:"btn btn-primary form-control"%>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<br><br><br><br><br>
+<!-- can refactor this round about in the controller by newing up only membership not project.membership and then defining new'd up to the project or redifining instance variable in else -->
+<% @project.users.each do |user| %>
+  <% user.memberships.where(project_id: @project.id).each do |membership| %>
+    <%= form_for [@project, membership] do |f| %>
+      <div class="form-inline">
+        <div class = "row">
+          <div class="col-sm-2">
+            <div class="form-group">
+              <%= link_to membership.user.full_name, user_path(user) %>
+            </div>
+          </div>
+
+          <div class="col-sm-1">
+            <div class="form-group">
+              <%= f.select :role, ["member", "owner"], {}, {class:"form-control"} %>
+            </div>
+          </div>
+
+          <div class="col-sm-1">
+            <div class="form-group">
+              <%= f.submit "Update", class:"btn btn-primary"%>
+            </div>
+          </div>
+
+          <div class ="col-sm-6">
+            <div class ="form-group">
+              <%= link_to "", project_membership_path(@project, membership), class:"glyphicon glyphicon-remove", method: :delete, data:{confirm: "Are you sure you want to delete this membership?"} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <br>
+<% end %>
