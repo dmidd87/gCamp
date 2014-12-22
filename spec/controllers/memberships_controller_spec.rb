@@ -16,14 +16,6 @@ describe MembershipsController do
     end
   end
 
-  describe "#edit" do
-    it "Only project owners can manage memberships" do
-    end
-
-    it "Only user who is logged in can edit own membership" do
-    end
-  end
-
   describe "#delete" do
     it "should not allow the last owner membership to be deleted" do
     end

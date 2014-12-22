@@ -6,8 +6,8 @@ before_action :current_user_has_project_permission, except: [:index, :new, :crea
 
   def index
     @projects = current_user.projects
-    tracker_api = TrackerAPI.new
-    @tracker_projects = tracker_api.projects(current_user.pivot_token)
+    # tracker_api = TrackerAPI.new
+    # @tracker_projects = tracker_api.projects(current_user.pivot_token)
   end
 
   def new
