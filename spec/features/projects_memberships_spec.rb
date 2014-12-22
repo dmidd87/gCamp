@@ -56,9 +56,8 @@ feature "Memberships" do
     end
     select "Test2 User", from: "membership_user_id"
     click_on "Add New Member"
-    save_and_open_page
-    find('.glyphicon').click
-    expect(page).to have_content "Test2 User was removed successfully"
+    click_on "Test2 User"
+    expect(page).to have_content "test2@test.com"
   end
 
   scenario "Admin user can manage memberships" do
@@ -81,8 +80,8 @@ feature "Memberships" do
     end
     select "Test2", from: "membership_user_id"
     click_on "Add New Member"
-    find('.glyphicon').click
-    expect(page).to have_content "Test2 User was removed successfully"
+    click_on "Test2 User"
+    expect(page).to have_content "test2@test.com"
   end
 
   scenario "Project members can view memberships but not click on user and see the user edit page and they only see the delete icon for themselves" do
@@ -118,10 +117,8 @@ feature "Memberships" do
   end
 
   scenario "Members can remove themselves from projects" do
-
   end
 
   scenario "Owners cannot remove themselves from projects" do
-    pending
   end
 end
