@@ -11,7 +11,7 @@ require 'rails_helper'
       expect(task.errors[:description].present?).to eq(false)
     end
 
-    it 'validates the presence of a valid task date' do
+    it 'validates the presence of a task date that is not in the past' do
       task = Task.new
       task.valid?
       expect(task.errors[:description].present?).to eq(true)

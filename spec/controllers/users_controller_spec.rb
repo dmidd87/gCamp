@@ -14,6 +14,20 @@ describe "#index" do
   end
 end
 
+  it "doesn't allow a logged in user to see the users index" do
+    user = create_user
+    session[:user_id] = user.id
+    get :index, id: user.id
+    expect(response.status).to eq(404)
+  end
+
+  it "only allows the admin to see the users index" do
+    admin = create_admin
+    session[:user_id] = admin.id
+    get :index, id: admin.id
+    expect(response).to be_success
+  end
+
 describe "#edit" do
 
     before do
