@@ -3,11 +3,10 @@
       <div class="well">
   <h2 class="sign">Log in to gCamp</h2>
 
-
-        <%= form_tag signin_path do |f| %>
-          <% if @sign_in_error %>
-            <div class= "alert alert-danger"><%= @sign_in_error %></div>
-          <% end %>
+  <%= form_tag signin_path do |f| %>
+    <% if @sign_in_error %>
+      <div class= "alert alert-danger"><%= @sign_in_error %></div>
+    <% end %>
 
     <div class="form-group">
       <%= label_tag :email_address, "Email" %>
