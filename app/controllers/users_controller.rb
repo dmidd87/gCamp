@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   end
 
   def update
-      @user.update(user_params)
-      @user.save
-      redirect_to users_path, notice: 'User was successfully updated.'
+    @user.update(user_params)
+    @user.save
+    redirect_to users_path, notice: 'User was successfully updated.'
   end
 
   def new
