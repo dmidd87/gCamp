@@ -6,7 +6,7 @@ Linkedin = https://www.linkedin.com/pub/david-middleton/49/48a/788
 
 Twitter = https://twitter.com/DpMidd
 
-Github = github.com/dmidd87
+Github = github.com/dpmidd
 
 Travis = [![Build Status](https://travis-ci.org/dmidd87/gCamp.svg?branch=master)](https://travis-ci.org/dmidd87/gCamp)
 

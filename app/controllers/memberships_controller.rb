@@ -42,6 +42,6 @@ class MembershipsController < ApplicationController
 
   private
     def membership_params
-      params.require(:membership).permit(:role, :user_id, :project_id)
+    params.require(:membership).permit(:role, :user_id, :project_id)
   end
 end
