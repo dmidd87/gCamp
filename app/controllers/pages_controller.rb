@@ -12,7 +12,7 @@ class PagesController < PublicController
 
     quote3 = Quote.new
     quote3.text = "It does not matter how slowly you go as long as you don't stop"
-    quote3.author = "-Confucious"
+    quote3.author = "-Confucius"
 
     @quotes = [quote1, quote2, quote3]
   end

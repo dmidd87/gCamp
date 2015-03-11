@@ -8,6 +8,10 @@ gem "pg"
 
 gem 'faker'
 
+gem 'selenium-webdriver', '~> 2.45.0'
+
+gem 'database_cleaner', '~> 1.4.1'
+
 group :production do
   gem "rails_12factor"
 end

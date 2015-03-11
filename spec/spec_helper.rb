@@ -9,6 +9,14 @@ RSpec.configure do |config|
   end
 end
 
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path("../../config/environment", __FILE__)
+require 'rspec/rails'
+
+# Add this to load Capybara integration:
+require 'capybara/rspec'
+require 'capybara/rails'
+
 def register(user,password)
   visit signup_path
   fill_in "First name", with: user.first_name

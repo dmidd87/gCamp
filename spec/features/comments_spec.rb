@@ -25,7 +25,7 @@ feature "Memberships" do
       click_on "Create Comment"
     end
 
-    scenario "User tries to add a blank comment to the comments page" do
+    scenario "User tries to add a blank comment to the comments page", :js => true do
         visit root_path
         click_on "Sign Up"
         fill_in "First name", with: "David"
