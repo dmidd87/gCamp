@@ -3,7 +3,6 @@ require 'rails_helper'
 feature "Memberships" do
 
   scenario "Owner of project leaves a comment" do
-    pending
     visit signup_path
       fill_in "First name", with: "David"
       fill_in "Last name", with: "Example"
