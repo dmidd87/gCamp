@@ -8,6 +8,8 @@ gem "pg"
 
 gem 'faker'
 
+gem 'turbolinks'
+
 gem 'selenium-webdriver', '~> 2.45.0'
 
 gem 'database_cleaner', '~> 1.4.1'
